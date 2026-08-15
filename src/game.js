@@ -2,9 +2,21 @@ window.Rua777 = window.Rua777 || {};
 
 Rua777.createGame = function createGame(canvas) {
   const context = canvas.getContext("2d");
+
+  if (!context) {
+    throw new Error("Contexto 2D do canvas não está disponível.");
+  }
+
   context.imageSmoothingEnabled = false;
 
-  function draw() {
+  const input = Rua777.createInput();
+  const player = Rua777.createPlayer();
+
+  function update(deltaTime) {
+    player.update(input, deltaTime);
+  }
+
+  function drawScene() {
     const { width, height } = Rua777.config;
 
     context.fillStyle = Rua777.config.backgroundColor;
@@ -23,15 +35,12 @@ Rua777.createGame = function createGame(canvas) {
     context.fillRect(0, 155, width, 50);
     context.fillStyle = "#424950";
     context.fillRect(0, 205, width, 65);
-
-    // Placeholder de Nila, sem substituir sua arte oficial.
-    context.fillStyle = "#555b62";
-    context.fillRect(104, 166, 16, 22);
-    context.fillStyle = "#26292e";
-    context.fillRect(106, 188, 12, 17);
-    context.fillStyle = "#6f283b";
-    context.fillRect(116, 170, 5, 14);
   }
 
-  return { draw };
+  function draw() {
+    drawScene();
+    player.draw(context);
+  }
+
+  return { update, draw };
 };

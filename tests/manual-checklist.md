@@ -8,10 +8,20 @@
 - [ ] Os pixels permanecem nítidos ao redimensionar.
 - [ ] O console do navegador não apresenta erros.
 
+## Movimento
+
+- [ ] W e seta para cima movimentam Nila para cima.
+- [ ] A e seta esquerda movimentam Nila para a esquerda.
+- [ ] S e seta para baixo movimentam Nila para baixo.
+- [ ] D e seta direita movimentam Nila para a direita.
+- [ ] Movimento diagonal não é mais rápido.
+- [ ] Nila para quando as teclas são soltas.
+- [ ] Nila para quando a janela perde o foco.
+- [ ] Nila não sai dos limites da área jogável.
+- [ ] As teclas do jogo não rolam a página.
+
 ## Próximas mecânicas
 
-- [ ] WASD e setas movimentam Nila.
-- [ ] Movimento diagonal não é mais rápido.
 - [ ] Nila não atravessa obstáculos.
 - [ ] A interação aparece perto do portão.
 - [ ] O diálogo abre e fecha corretamente.
