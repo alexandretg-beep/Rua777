@@ -1,0 +1,8 @@
+{
+  "name": "rua-777",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "node tests/runtime.test.js"
+  }
+}
