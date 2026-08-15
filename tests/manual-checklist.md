@@ -20,9 +20,17 @@
 - [ ] Nila não sai dos limites da área jogável.
 - [ ] As teclas do jogo não rolam a página.
 
+## Colisões
+
+- [ ] Nila não atravessa o muro esquerdo.
+- [ ] Nila não atravessa o muro direito.
+- [ ] Nila não atravessa o portão fechado.
+- [ ] Nila não atravessa o tronco da árvore.
+- [ ] Nila consegue deslizar ao longo dos obstáculos.
+- [ ] A colisão considera os pés, não o corpo inteiro.
+
 ## Próximas mecânicas
 
-- [ ] Nila não atravessa obstáculos.
 - [ ] A interação aparece perto do portão.
 - [ ] O diálogo abre e fecha corretamente.
 

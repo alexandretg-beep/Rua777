@@ -31,4 +31,4 @@ Criar a menor experiência jogável de Rua 777:
 
 ## Marco atual
 
-A fundação desenha um cenário estático e um placeholder de Nila. Movimento e interação entram em commits posteriores.
+A fundação, o movimento e as colisões provisórias estão implementados. O próximo marco é a interação com o portão e uma fala claramente identificada como provisória.

@@ -10,7 +10,7 @@ Rua777.createPlayer = function createPlayer() {
     moving: false
   };
 
-  function update(input, deltaTime) {
+  function update(input, deltaTime, obstacles) {
     let xAxis = 0;
     let yAxis = 0;
 
@@ -35,12 +35,24 @@ Rua777.createPlayer = function createPlayer() {
       player.direction = yAxis < 0 ? "up" : "down";
     }
 
-    const speed = Rua777.config.playerSpeed;
-    player.x += xAxis * speed * deltaTime;
-    player.y += yAxis * speed * deltaTime;
+    const distance = Rua777.config.playerSpeed * deltaTime;
+    const nextX = Math.max(
+      0,
+      Math.min(Rua777.config.width - player.width, player.x + xAxis * distance)
+    );
 
-    player.x = Math.max(0, Math.min(Rua777.config.width - player.width, player.x));
-    player.y = Math.max(145, Math.min(Rua777.config.height - player.height, player.y));
+    if (Rua777.collision.canOccupy(player, nextX, player.y, obstacles)) {
+      player.x = nextX;
+    }
+
+    const nextY = Math.max(
+      108,
+      Math.min(Rua777.config.height - player.height, player.y + yAxis * distance)
+    );
+
+    if (Rua777.collision.canOccupy(player, player.x, nextY, obstacles)) {
+      player.y = nextY;
+    }
   }
 
   function draw(context) {
@@ -57,6 +69,12 @@ Rua777.createPlayer = function createPlayer() {
     context.fillRect(x + 2, y + 22, 12, 17);
     context.fillStyle = "#6f283b";
     context.fillRect(x + 12, y + 4, 5, 14);
+
+    if (Rua777.config.debug) {
+      const box = Rua777.collision.playerBox(player);
+      context.strokeStyle = "#4de1ff";
+      context.strokeRect(box.x + 0.5, box.y + 0.5, box.width - 1, box.height - 1);
+    }
   }
 
   return { state: player, update, draw };
