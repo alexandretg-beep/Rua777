@@ -8,6 +8,20 @@ Rua777.createRuaScene = function createRuaScene() {
     { id: "arvore", x: 54, y: 164, width: 14, height: 22 }
   ]);
 
+  const gateInteraction = Object.freeze({
+    x: 205,
+    y: 155,
+    width: 70,
+    height: 35
+  });
+
+  function isPlayerNearGate(player) {
+    return Rua777.collision.intersects(
+      Rua777.collision.playerBox(player),
+      gateInteraction
+    );
+  }
+
   function draw(context) {
     const { width, height } = Rua777.config;
 
@@ -56,8 +70,16 @@ Rua777.createRuaScene = function createRuaScene() {
           obstacle.height - 1
         );
       });
+
+      context.strokeStyle = "#ffe66d";
+      context.strokeRect(
+        gateInteraction.x + 0.5,
+        gateInteraction.y + 0.5,
+        gateInteraction.width - 1,
+        gateInteraction.height - 1
+      );
     }
   }
 
-  return { obstacles, draw };
+  return { obstacles, isPlayerNearGate, draw };
 };

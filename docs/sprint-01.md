@@ -31,4 +31,4 @@ Criar a menor experiência jogável de Rua 777:
 
 ## Marco atual
 
-A fundação, o movimento e as colisões provisórias estão implementados. O próximo marco é a interação com o portão e uma fala claramente identificada como provisória.
+A menor experiência jogável está implementada: abrir, caminhar, colidir, aproximar-se do portão e interagir. A frase “Então esta é a nossa nova casa...” é provisória e precisa de aprovação antes de ser considerada canônica.

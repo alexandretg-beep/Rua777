@@ -10,6 +10,10 @@ Rua777.createPlayer = function createPlayer() {
     moving: false
   };
 
+  function stop() {
+    player.moving = false;
+  }
+
   function update(input, deltaTime, obstacles) {
     let xAxis = 0;
     let yAxis = 0;
@@ -77,5 +81,5 @@ Rua777.createPlayer = function createPlayer() {
     }
   }
 
-  return { state: player, update, draw };
+  return { state: player, stop, update, draw };
 };

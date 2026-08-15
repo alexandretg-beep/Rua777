@@ -29,10 +29,15 @@
 - [ ] Nila consegue deslizar ao longo dos obstáculos.
 - [ ] A colisão considera os pés, não o corpo inteiro.
 
-## Próximas mecânicas
+## Interação
 
-- [ ] A interação aparece perto do portão.
-- [ ] O diálogo abre e fecha corretamente.
+- [ ] “E — Interagir” aparece somente perto do portão.
+- [ ] A interação não funciona à distância.
+- [ ] E abre a caixa de diálogo.
+- [ ] Nila para enquanto o diálogo está aberto.
+- [ ] E, Enter ou espaço fecha a caixa de diálogo.
+- [ ] É possível interagir novamente depois de fechar.
+- [ ] A fala está identificada como provisória na documentação.
 
 ## Cânone
 
