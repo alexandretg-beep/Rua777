@@ -83,6 +83,7 @@
 - [ ] O caminho mais claro conduz visualmente ao portão sem parecer uma colisão nova.
 - [ ] Jardim, calçada e rua ficam fáceis de distinguir no celular.
 - [ ] Tufos, juntas e sombras permanecem discretos e não escondem Nila.
+- [ ] Apenas três folhas secas atravessam a calçada sem distrair ou causar travadas.
 - [ ] As folhas balançam lentamente.
 - [ ] O tronco da árvore permanece imóvel.
 - [ ] A colisão da árvore não acompanha a animação visual.
