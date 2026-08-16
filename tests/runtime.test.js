@@ -6,6 +6,22 @@ const vm = require("node:vm");
 const root = path.resolve(__dirname, "..");
 const listeners = {};
 
+const officialSpritePath = path.join(
+  root,
+  "assets/characters/nila/nila-walk-6frames.png"
+);
+const officialSprite = fs.readFileSync(officialSpritePath);
+assert.equal(officialSprite.subarray(1, 4).toString("ascii"), "PNG");
+const officialSpriteWidth = officialSprite.readUInt32BE(16);
+const officialSpriteHeight = officialSprite.readUInt32BE(20);
+assert.equal(officialSpriteWidth, 768);
+assert.equal(officialSpriteHeight, 512);
+assert.equal(officialSprite[25], 6);
+assert.deepEqual(
+  [officialSpriteWidth / 6, officialSpriteHeight / 4],
+  [128, 128]
+);
+
 global.window = globalThis;
 global.addEventListener = (type, handler) => {
   (listeners[type] ||= []).push(handler);
@@ -254,7 +270,12 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 24/24");
+console.log("PASS 29/29");
+console.log("✓ sprite oficial é um PNG");
+console.log("✓ largura da sprite oficial");
+console.log("✓ altura da sprite oficial");
+console.log("✓ sprite oficial possui canal alfa");
+console.log("✓ grade oficial usa células 128 × 128");
 console.log("✓ scripts carregam");
 console.log("✓ jogo carrega o novo arquivo da sprite");
 console.log("✓ entrada de toque para movimento");
