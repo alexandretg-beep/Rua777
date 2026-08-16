@@ -75,6 +75,15 @@ function load(relativePath) {
 const scene = Rua777.createRuaScene();
 const input = Rua777.createInput();
 
+const sceneRects = [];
+scene.draw({
+  fillRect(...args) {
+    sceneRects.push(args);
+  }
+}, 0);
+assert.ok(sceneRects.some((rect) => rect.join(",") === "220,155,40,50"));
+assert.ok(sceneRects.some((rect) => rect.join(",") === "0,202,480,3"));
+
 input.press("ArrowRight");
 assert.equal(input.isHeld("ArrowRight"), true);
 assert.equal(input.consumePress("ArrowRight"), true);
@@ -340,7 +349,7 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 49/49");
+console.log("PASS 51/51");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
@@ -352,6 +361,8 @@ console.log("✓ altura da sprite de pulo");
 console.log("✓ sprite de pulo possui canal alfa");
 console.log("✓ grade de pulo usa células 128 × 128");
 console.log("✓ scripts carregam");
+console.log("✓ caminho visual conduz ao portão");
+console.log("✓ borda da calçada separa a área jogável");
 console.log("✓ jogo carrega o novo arquivo da sprite");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");

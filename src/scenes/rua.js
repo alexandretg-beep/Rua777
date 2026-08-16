@@ -43,6 +43,11 @@ Rua777.createRuaScene = function createRuaScene() {
     context.fillStyle = "#343b42";
     context.fillRect(126, 66, 58, 57);
     context.fillRect(288, 58, 56, 65);
+    context.fillStyle = "#4c555d";
+    context.fillRect(92, 118, 296, 5);
+    context.fillStyle = "#293139";
+    context.fillRect(126, 66, 4, 57);
+    context.fillRect(288, 58, 4, 65);
 
     // Jardim, calçada e rua.
     context.fillStyle = "#3f5d46";
@@ -51,6 +56,28 @@ Rua777.createRuaScene = function createRuaScene() {
     context.fillRect(0, 155, width, 50);
     context.fillStyle = "#424950";
     context.fillRect(0, 205, width, 65);
+
+    // Caminho e detalhes provisórios para orientar o jogador sem poluir a cena.
+    context.fillStyle = "#8f887b";
+    context.fillRect(220, 155, 40, 50);
+    context.fillStyle = "#b4ac9d";
+    context.fillRect(223, 158, 34, 44);
+    context.fillStyle = "#777168";
+    context.fillRect(0, 202, width, 3);
+    context.fillStyle = "#6c665e";
+    context.fillRect(118, 155, 2, 47);
+    context.fillRect(360, 155, 2, 47);
+
+    context.fillStyle = "#527158";
+    context.fillRect(18, 138, 2, 7);
+    context.fillRect(21, 135, 2, 10);
+    context.fillRect(405, 137, 2, 8);
+    context.fillRect(408, 140, 2, 5);
+
+    context.fillStyle = "#515960";
+    context.fillRect(42, 236, 54, 2);
+    context.fillRect(192, 236, 54, 2);
+    context.fillRect(342, 236, 54, 2);
 
     // Muro e portão.
     context.fillStyle = "#77746d";
@@ -65,6 +92,8 @@ Rua777.createRuaScene = function createRuaScene() {
 
     // Árvore provisória: somente a copa se move; tronco e colisão ficam fixos.
     drawTreeCanopy(context, elapsedTime);
+    context.fillStyle = "rgba(32, 39, 34, 0.24)";
+    context.fillRect(45, 181, 32, 5);
     context.fillStyle = "#594536";
     context.fillRect(54, 156, 14, 30);
 
