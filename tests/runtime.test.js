@@ -170,6 +170,9 @@ assert.equal(drawnRows.pop(), 0);
 jumper.update(input, 0.42, scene.obstacles);
 assert.equal(jumper.state.jumping, false);
 assert.equal(jumper.state.jumpOffset, 0);
+assert.equal(jumper.landingDust.length, 2);
+jumper.update(input, 0.3, scene.obstacles);
+assert.equal(jumper.landingDust.length, 0);
 
 const diagonal = Rua777.createPlayer();
 dispatch("keydown", "KeyD");
@@ -304,7 +307,7 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 43/43");
+console.log("PASS 45/45");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
@@ -337,6 +340,8 @@ console.log("✓ salto usa quatro quadros por direção");
 console.log("✓ salto seleciona a linha da direção atual");
 console.log("✓ salto termina no chão");
 console.log("✓ altura visual reinicia após o salto");
+console.log("✓ aterrissagem cria poeira discreta");
+console.log("✓ poeira desaparece rapidamente");
 console.log("✓ diagonal normalizada");
 console.log("✓ colisão com muro");
 console.log("✓ colisão com árvore");

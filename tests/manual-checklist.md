@@ -29,6 +29,7 @@
 - [ ] Nila não atravessa muro, portão ou árvore durante o salto.
 - [ ] Cabelo até os ombros, cabeça, pés e mochila não são cortados.
 - [ ] A sombra permanece no chão e diminui enquanto Nila sobe.
+- [ ] Duas partículas discretas de poeira aparecem e desaparecem rapidamente ao aterrissar.
 
 ## Movimento
 

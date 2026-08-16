@@ -28,6 +28,8 @@ Rua777.createPlayer = function createPlayer(assets) {
     framesPerDirection: 4
   };
 
+  const landingDust = [];
+
   const directionRow = Object.freeze({ down: 0, right: 1, left: 2, up: 3 });
   let movingTime = 0;
 
@@ -48,6 +50,29 @@ Rua777.createPlayer = function createPlayer(assets) {
     return true;
   }
 
+  function createLandingDust() {
+    const centerX = player.x + player.width / 2;
+    const groundY = player.y + player.height - 3;
+    landingDust.push(
+      { x: centerX - 4, y: groundY, velocityX: -12, velocityY: -7, age: 0, duration: 0.28 },
+      { x: centerX + 4, y: groundY, velocityX: 12, velocityY: -7, age: 0, duration: 0.28 }
+    );
+  }
+
+  function updateLandingDust(deltaTime) {
+    for (let index = landingDust.length - 1; index >= 0; index -= 1) {
+      const particle = landingDust[index];
+      particle.age += deltaTime;
+      if (particle.age >= particle.duration) {
+        landingDust.splice(index, 1);
+        continue;
+      }
+      particle.x += particle.velocityX * deltaTime;
+      particle.y += particle.velocityY * deltaTime;
+      particle.velocityY += 22 * deltaTime;
+    }
+  }
+
   function updateJump(deltaTime) {
     if (!player.jumping) return;
 
@@ -63,6 +88,7 @@ Rua777.createPlayer = function createPlayer(assets) {
     );
 
     if (progress >= 1) {
+      createLandingDust();
       player.jumping = false;
       player.jumpOffset = 0;
       jumpAnimation.frame = 0;
@@ -87,6 +113,7 @@ Rua777.createPlayer = function createPlayer(assets) {
   }
 
   function update(input, deltaTime, obstacles) {
+    updateLandingDust(deltaTime);
     updateJump(deltaTime);
 
     let xAxis = 0;
@@ -160,6 +187,13 @@ Rua777.createPlayer = function createPlayer(assets) {
     const jumpOffset = Math.round(player.jumpOffset);
     const shadowWidth = Math.max(8, 14 - jumpOffset * 0.25);
 
+    for (const particle of landingDust) {
+      const progress = particle.age / particle.duration;
+      context.fillStyle = `rgba(190, 181, 158, ${0.55 * (1 - progress)})`;
+      const size = progress < 0.5 ? 2 : 1;
+      context.fillRect(Math.round(particle.x), Math.round(particle.y), size, size);
+    }
+
     context.fillStyle = "rgba(18, 20, 23, 0.35)";
     context.fillRect(
       Math.round(x + player.width / 2 - shadowWidth / 2),
@@ -202,5 +236,14 @@ Rua777.createPlayer = function createPlayer(assets) {
     }
   }
 
-  return { state: player, animation, jumpAnimation, stop, jump, update, draw };
+  return {
+    state: player,
+    animation,
+    jumpAnimation,
+    landingDust,
+    stop,
+    jump,
+    update,
+    draw
+  };
 };
