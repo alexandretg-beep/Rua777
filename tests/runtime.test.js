@@ -258,6 +258,29 @@ Rua777.createAssets = () => ({
   }
 });
 
+const interactionStates = new Set();
+const interactionAttributes = {};
+const interactionButton = {
+  classList: {
+    toggle(name, enabled) {
+      if (enabled) interactionStates.add(name);
+      else interactionStates.delete(name);
+    }
+  },
+  setAttribute(name, value) {
+    interactionAttributes[name] = value;
+  }
+};
+global.document = {
+  querySelector(selector) {
+    if (selector === '[data-input="KeyE"]') return interactionButton;
+    return null;
+  },
+  querySelectorAll() {
+    return [];
+  }
+};
+
 const game = Rua777.createGame(canvas);
 assert.deepEqual(assetLoads, [
   ["nila-walk", "./assets/characters/nila/nila-walk-6frames.png"],
@@ -277,14 +300,18 @@ for (let frame = 0; frame < 20; frame += 1) {
 dispatch("keyup", "KeyW");
 
 game.draw();
-assert.ok(drawCalls.some((call) => call.includes("E — Interagir")));
+assert.ok(drawCalls.some((call) => call.includes("E / toque — Interagir")));
 assert.ok(strokeCalls.some((call) => call[0] === 214.5 && call[1] === 140.5));
+assert.equal(interactionStates.has("is-available"), true);
+assert.equal(interactionAttributes["aria-disabled"], "false");
 
 drawCalls.length = 0;
 dispatch("keydown", "KeyE");
 game.update(0.016);
 dispatch("keyup", "KeyE");
 game.draw();
+assert.equal(interactionStates.has("is-available"), false);
+assert.equal(interactionAttributes["aria-disabled"], "true");
 assert.ok(
   drawCalls.some((call) => call.includes("Então esta é a nossa nova casa..."))
 );
@@ -300,14 +327,20 @@ assert.ok(
 
 global.document = {
   querySelector(selector) {
-    assert.equal(selector, "#game");
-    return canvas;
+    if (selector === "#game") return canvas;
+    if (selector === '[data-input="KeyE"]') {
+      return {
+        classList: { toggle() {} },
+        setAttribute() {}
+      };
+    }
+    assert.fail(`Seletor inesperado: ${selector}`);
   }
 };
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 45/45");
+console.log("PASS 49/49");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
@@ -349,6 +382,10 @@ console.log("✓ copa cobre Nila quando ela passa atrás");
 console.log("✓ copa não cobre Nila quando ela passa à frente");
 console.log("✓ proximidade do portão");
 console.log("✓ portão destacado quando a interação está disponível");
+console.log("✓ botão E destacado quando a interação está disponível");
+console.log("✓ botão E anunciado como disponível");
 console.log("✓ interação bloqueada à distância");
 console.log("✓ diálogo abre");
+console.log("✓ destaque do botão E termina durante o diálogo");
+console.log("✓ botão E anunciado como indisponível durante o diálogo");
 console.log("✓ diálogo fecha");

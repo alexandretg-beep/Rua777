@@ -19,8 +19,18 @@ Rua777.createGame = function createGame(canvas) {
   const scene = Rua777.createRuaScene();
   const player = Rua777.createPlayer(assets);
   const dialogue = Rua777.createDialogue();
+  const interactionButton = typeof document !== "undefined"
+    ? document.querySelector('[data-input="KeyE"]')
+    : null;
   let nearGate = false;
   let elapsedTime = 0;
+
+  function syncInteractionButton() {
+    if (!interactionButton) return;
+    const available = nearGate && !player.state.jumping && !dialogue.isOpen();
+    interactionButton.classList.toggle("is-available", available);
+    interactionButton.setAttribute("aria-disabled", String(!available));
+  }
 
   function update(deltaTime) {
     elapsedTime += deltaTime;
@@ -35,6 +45,7 @@ Rua777.createGame = function createGame(canvas) {
         dialogue.show("Nila", "Então esta é a nossa nova casa...");
       }
     }
+    syncInteractionButton();
     input.endFrame();
   }
 

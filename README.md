@@ -21,6 +21,7 @@ O protótipo jogável já permite:
 - Pular com espaço ou com o botão Pulo, usando quatro quadros por direção, poeira discreta na aterrissagem e mantendo as colisões do chão.
 - Encontrar colisões no cenário.
 - Aproximar-se do portão da casa.
+- Receber indicação visual no cenário e no botão de toque quando a interação está disponível.
 - Interagir com uma fala provisória.
 
 As formas atuais são placeholders e não substituem as artes oficiais.

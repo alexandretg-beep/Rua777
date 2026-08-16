@@ -50,10 +50,10 @@ Rua777.createDialogue = function createDialogue() {
 
 Rua777.drawInteractionPrompt = function drawInteractionPrompt(context) {
   context.fillStyle = "rgba(14, 17, 21, 0.88)";
-  context.fillRect(195, 169, 90, 20);
+  context.fillRect(176, 169, 128, 20);
   context.strokeStyle = "#d4c6ab";
-  context.strokeRect(195.5, 169.5, 89, 19);
+  context.strokeRect(176.5, 169.5, 127, 19);
   context.font = "10px monospace";
   context.fillStyle = "#eef1f4";
-  context.fillText("E — Interagir", 204, 183);
+  context.fillText("E / toque — Interagir", 181, 183);
 };

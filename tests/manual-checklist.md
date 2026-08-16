@@ -50,6 +50,7 @@
 - [ ] É possível segurar um botão para caminhar.
 - [ ] Nila para ao soltar ou cancelar o toque.
 - [ ] O botão E abre e fecha o diálogo.
+- [ ] O botão E é destacado somente quando Nila pode interagir com o portão.
 - [ ] O botão Pulo executa apenas um salto por toque.
 - [ ] Os botões Pulo e E não se sobrepõem em retrato ou paisagem.
 - [ ] A página não rola nem amplia durante os controles.
@@ -69,7 +70,7 @@
 
 ## Interação
 
-- [ ] “E — Interagir” aparece somente perto do portão.
+- [ ] “E / toque — Interagir” aparece somente perto do portão.
 - [ ] A interação não funciona à distância.
 - [ ] E abre a caixa de diálogo.
 - [ ] Nila para enquanto o diálogo está aberto.
