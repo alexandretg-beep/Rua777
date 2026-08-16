@@ -70,6 +70,22 @@ horizontal.update(input, 0.05, scene.obstacles);
 dispatch("keyup", "KeyD");
 assert.equal(horizontal.state.x, 108.25);
 
+const accelerating = Rua777.createPlayer();
+dispatch("keydown", "KeyD");
+accelerating.update(input, 0.05, scene.obstacles);
+const firstStep = accelerating.state.x - 104;
+let previousX = accelerating.state.x;
+let acceleratedStep = firstStep;
+for (let frame = 0; frame < 6; frame += 1) {
+  accelerating.update(input, 0.05, scene.obstacles);
+  acceleratedStep = accelerating.state.x - previousX;
+  previousX = accelerating.state.x;
+}
+dispatch("keyup", "KeyD");
+assert.ok(acceleratedStep > firstStep);
+accelerating.update(input, 0.05, scene.obstacles);
+assert.equal(accelerating.state.speed, Rua777.config.playerSpeed);
+
 const sprite = { naturalWidth: 1230, naturalHeight: 1278 };
 const drawnRows = [];
 const spriteContext = {
@@ -217,13 +233,15 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 19/19");
+console.log("PASS 21/21");
 console.log("✓ scripts carregam");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
 console.log("✓ controles liberados ao perder foco");
 console.log("✓ controles liberados ao trocar de página");
 console.log("✓ movimento horizontal");
+console.log("✓ aceleração leve ao manter a direção");
+console.log("✓ velocidade reinicia ao soltar");
 console.log("✓ sprite olha para a direita");
 console.log("✓ sprite olha para a esquerda");
 console.log("✓ recortes da sprite usam coordenadas inteiras");
