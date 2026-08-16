@@ -1,0 +1,28 @@
+# Manifesto de ativos
+
+Este arquivo identifica quais artes o jogo deve carregar. Um ativo só é oficial quando aparece aqui.
+
+## Personagens
+
+| Identificador | Arquivo oficial | Formato | Uso |
+|---|---|---|---|
+| `nila-walk` | `assets/characters/nila/nila-walk-6frames.png` | PNG RGBA, 768 × 512, grade 6 × 4 | Caminhada de Nila em frente, direita, esquerda e costas |
+
+### Ordem da grade de Nila
+
+- Linha 1: frente/baixo.
+- Linha 2: direita.
+- Linha 3: esquerda.
+- Linha 4: costas/cima.
+- Cada célula: 128 × 128.
+- Cada linha: seis quadros.
+- Pés alinhados na base da célula.
+- Cabelo e mochila inteiros dentro da célula.
+
+## Regras
+
+- O código não deve carregar arquivos que não estejam neste manifesto.
+- Arquivos substituídos devem ser removidos na mesma alteração que ativa o sucessor.
+- Toda sprite deve ter fundo realmente transparente.
+- Dimensões da folha devem ser divisíveis pela quantidade de colunas e linhas.
+- Mudanças visuais de personagem devem ser registradas em `docs/decisions.md`.
