@@ -6,6 +6,10 @@ Projeto do jogo **Rua 777**, desenvolvido como uma experiência narrativa 2D em 
 
 Desenvolver o jogo mantendo a história, os personagens e as decisões canônicas consistentes ao longo do projeto.
 
+## Jogar online
+
+[Abrir Rua 777 no navegador](https://alexandretg-beep.github.io/Rua777/)
+
 ## Status
 
 O primeiro protótipo jogável está em desenvolvimento e já permite:
@@ -42,7 +46,7 @@ Com Node.js instalado, execute:
 npm test
 ```
 
-A verificação automatizada cobre carregamento dos scripts, movimento, diagonal, colisões, proximidade do portão e diálogo. A apresentação visual deve ser conferida manualmente no navegador usando `tests/manual-checklist.md`.
+A verificação automatizada cobre carregamento dos scripts, entrada compartilhada por teclado e toque, movimento, diagonal, colisões, proximidade do portão e diálogo. A apresentação visual deve ser conferida manualmente no navegador usando `tests/manual-checklist.md`.
 
 ## Estrutura
 
