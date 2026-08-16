@@ -284,9 +284,11 @@ Rua777.createAssets = () => ({
 
 const interactionStates = new Set();
 const interactionAttributes = {};
+let interactionSyncCount = 0;
 const interactionButton = {
   classList: {
     toggle(name, enabled) {
+      interactionSyncCount += 1;
       if (enabled) interactionStates.add(name);
       else interactionStates.delete(name);
     }
@@ -328,6 +330,9 @@ assert.ok(drawCalls.some((call) => call.includes("E / toque — Interagir")));
 assert.ok(strokeCalls.some((call) => call[0] === 214.5 && call[1] === 140.5));
 assert.equal(interactionStates.has("is-available"), true);
 assert.equal(interactionAttributes["aria-disabled"], "false");
+const syncCountNearGate = interactionSyncCount;
+game.update(0.016);
+assert.equal(interactionSyncCount, syncCountNearGate);
 
 drawCalls.length = 0;
 dispatch("keydown", "KeyE");
@@ -364,7 +369,7 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 53/53");
+console.log("PASS 54/54");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
@@ -412,6 +417,7 @@ console.log("✓ proximidade do portão");
 console.log("✓ portão destacado quando a interação está disponível");
 console.log("✓ botão E destacado quando a interação está disponível");
 console.log("✓ botão E anunciado como disponível");
+console.log("✓ estado do botão E não reescreve o DOM a cada quadro");
 console.log("✓ interação bloqueada à distância");
 console.log("✓ diálogo abre");
 console.log("✓ destaque do botão E termina durante o diálogo");

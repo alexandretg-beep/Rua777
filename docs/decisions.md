@@ -20,6 +20,7 @@ Cada decisão deve informar a data, o assunto, o estado e o impacto nos arquivos
 | 2026-08-16 | Sprite de pulo | A animação usa quatro quadros por direção e mantém o cabelo até os ombros. | Implementado |
 | 2026-08-16 | Aterrissagem | O pulo termina com duas partículas curtas de poeira desenhadas no canvas, sem criar um ativo adicional. | Implementado |
 | 2026-08-16 | Interação móvel | O aviso do portão deve mencionar toque e o botão E deve ser destacado somente quando puder ser usado. | Implementado |
+| 2026-08-16 | Desempenho da interface | Estados dos controles de toque só devem atualizar o DOM quando o valor realmente mudar. | Implementado |
 | 2026-08-16 | Leitura do cenário | Detalhes provisórios devem orientar o caminho até o portão com contraste discreto, sem poluir a cena. | Implementado |
 | 2026-08-16 | Ambiente | Elementos naturais podem ter animações discretas, como folhas balançando. | Implementado |
 | 2026-08-16 | Diálogo do portão | “Então esta é a nossa nova casa...” continua sendo provisório. | Não canônico |

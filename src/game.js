@@ -24,10 +24,13 @@ Rua777.createGame = function createGame(canvas) {
     : null;
   let nearGate = false;
   let elapsedTime = 0;
+  let lastInteractionAvailable = null;
 
   function syncInteractionButton() {
     if (!interactionButton) return;
     const available = nearGate && !player.state.jumping && !dialogue.isOpen();
+    if (available === lastInteractionAvailable) return;
+    lastInteractionAvailable = available;
     interactionButton.classList.toggle("is-available", available);
     interactionButton.setAttribute("aria-disabled", String(!available));
   }
