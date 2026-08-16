@@ -62,6 +62,34 @@ horizontal.update(input, 0.05, scene.obstacles);
 dispatch("keyup", "KeyD");
 assert.equal(horizontal.state.x, 108.25);
 
+const sprite = { naturalWidth: 400, naturalHeight: 400 };
+const drawnRows = [];
+const spriteContext = {
+  fillRect() {},
+  drawImage(...args) {
+    drawnRows.push(args[2]);
+  }
+};
+const spriteAssets = {
+  getImage() {
+    return sprite;
+  }
+};
+
+const facingRight = Rua777.createPlayer(spriteAssets);
+dispatch("keydown", "KeyD");
+facingRight.update(input, 0.05, scene.obstacles);
+dispatch("keyup", "KeyD");
+facingRight.draw(spriteContext);
+assert.equal(drawnRows.pop(), 100);
+
+const facingLeft = Rua777.createPlayer(spriteAssets);
+dispatch("keydown", "KeyA");
+facingLeft.update(input, 0.05, scene.obstacles);
+dispatch("keyup", "KeyA");
+facingLeft.draw(spriteContext);
+assert.equal(drawnRows.pop(), 200);
+
 const diagonal = Rua777.createPlayer();
 dispatch("keydown", "KeyD");
 dispatch("keydown", "KeyS");
@@ -156,11 +184,13 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 11/11");
+console.log("PASS 13/13");
 console.log("✓ scripts carregam");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
 console.log("✓ movimento horizontal");
+console.log("✓ sprite olha para a direita");
+console.log("✓ sprite olha para a esquerda");
 console.log("✓ diagonal normalizada");
 console.log("✓ colisão com muro");
 console.log("✓ colisão com árvore");
