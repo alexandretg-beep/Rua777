@@ -19,7 +19,7 @@ O roadmap registra marcos técnicos sem inventar conteúdo narrativo.
 ## Próximo — acabamento do primeiro trecho
 
 - [ ] Substituir formas provisórias somente quando houver arte aprovada.
-- [ ] Melhorar a leitura visual do caminho e dos obstáculos.
+- [x] Melhorar a leitura visual do caminho e dos obstáculos.
 - [ ] Definir a próxima interação pequena com autorização narrativa.
 - [ ] Ampliar testes para novos sistemas antes de adicionar conteúdo.
 
