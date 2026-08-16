@@ -155,9 +155,12 @@ assert.equal(
 );
 
 const drawCalls = [];
+const strokeCalls = [];
 const context = {
   fillRect() {},
-  strokeRect() {},
+  strokeRect(...args) {
+    strokeCalls.push(args);
+  },
   fillText(...args) {
     drawCalls.push(args);
   }
@@ -185,6 +188,7 @@ dispatch("keyup", "KeyW");
 
 game.draw();
 assert.ok(drawCalls.some((call) => call.includes("E — Interagir")));
+assert.ok(strokeCalls.some((call) => call[0] === 214.5 && call[1] === 140.5));
 
 drawCalls.length = 0;
 dispatch("keydown", "KeyE");
@@ -213,7 +217,7 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 17/17");
+console.log("PASS 18/18");
 console.log("✓ scripts carregam");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
@@ -228,6 +232,7 @@ console.log("✓ colisão com árvore");
 console.log("✓ copa cobre Nila quando ela passa atrás");
 console.log("✓ copa não cobre Nila quando ela passa à frente");
 console.log("✓ proximidade do portão");
+console.log("✓ portão destacado quando a interação está disponível");
 console.log("✓ interação bloqueada à distância");
 console.log("✓ diálogo abre");
 console.log("✓ diálogo fecha");
