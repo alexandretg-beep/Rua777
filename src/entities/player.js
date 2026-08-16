@@ -17,7 +17,7 @@ Rua777.createPlayer = function createPlayer(assets) {
     framesPerDirection: 4
   };
 
-  const directionRow = Object.freeze({ down: 0, left: 1, right: 2, up: 3 });
+  const directionRow = Object.freeze({ down: 0, right: 1, left: 2, up: 3 });
 
   function stop() {
     player.moving = false;
