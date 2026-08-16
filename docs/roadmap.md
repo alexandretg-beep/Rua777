@@ -25,6 +25,7 @@ O roadmap registra marcos técnicos sem inventar conteúdo narrativo.
 - [ ] Substituir formas provisórias somente quando houver arte aprovada.
 - [x] Melhorar a leitura visual do caminho e dos obstáculos.
 - [ ] Definir a próxima interação pequena com autorização narrativa.
+- [x] Preparar o ritmo técnico de revelação e avanço dos diálogos.
 - [ ] Ampliar testes para novos sistemas antes de adicionar conteúdo.
 
 ## Depois

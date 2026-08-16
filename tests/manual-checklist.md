@@ -74,6 +74,8 @@
 - [ ] “E / toque — Interagir” aparece somente perto do portão.
 - [ ] A interação não funciona à distância.
 - [ ] E abre a caixa de diálogo.
+- [ ] A fala aparece progressivamente em ritmo legível.
+- [ ] O primeiro comando durante a revelação completa a frase sem fechar.
 - [ ] Nila para enquanto o diálogo está aberto.
 - [ ] E, Enter ou espaço fecha a caixa de diálogo.
 - [ ] É possível interagir novamente depois de fechar.

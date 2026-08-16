@@ -39,7 +39,8 @@ Rua777.createGame = function createGame(canvas) {
     elapsedTime += deltaTime;
     if (dialogue.isOpen()) {
       player.stop();
-      if (input.consumePress("KeyE", "Enter", "Space")) dialogue.close();
+      dialogue.update(deltaTime);
+      if (input.consumePress("KeyE", "Enter", "Space")) dialogue.advance();
     } else {
       if (input.consumePress("Space")) player.jump();
       player.update(input, deltaTime, scene.obstacles);

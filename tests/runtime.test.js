@@ -75,6 +75,23 @@ function load(relativePath) {
 const scene = Rua777.createRuaScene();
 const input = Rua777.createInput();
 
+const typewriter = Rua777.createDialogue();
+const typewriterCalls = [];
+const typewriterContext = {
+  fillRect() {},
+  strokeRect() {},
+  fillText(...args) { typewriterCalls.push(args); }
+};
+typewriter.show("Nila", "Teste");
+assert.equal(typewriter.isOpen(), true);
+assert.equal(typewriter.isComplete(), false);
+typewriter.update(0.1);
+typewriter.draw(typewriterContext);
+assert.ok(typewriterCalls.some((call) => call.includes("Tes")));
+assert.equal(typewriter.advance(), "completed");
+assert.equal(typewriter.isComplete(), true);
+assert.equal(typewriter.advance(), "closed");
+
 const sceneRects = [];
 scene.draw({
   fillRect(...args) {
@@ -374,6 +391,15 @@ game.draw();
 assert.equal(interactionStates.has("is-available"), false);
 assert.equal(interactionAttributes["aria-disabled"], "true");
 assert.ok(
+  drawCalls.some((call) => call.includes("Nila"))
+);
+
+drawCalls.length = 0;
+dispatch("keydown", "Enter");
+game.update(0.016);
+dispatch("keyup", "Enter");
+game.draw();
+assert.ok(
   drawCalls.some((call) => call.includes("Então esta é a nossa nova casa..."))
 );
 
@@ -432,7 +458,7 @@ visibilityListeners[0]();
 scheduledFrames.shift()(performance.now() + 5000);
 assert.equal(mainUpdates, 0);
 
-console.log("PASS 61/61");
+console.log("PASS 68/68");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
@@ -444,6 +470,12 @@ console.log("✓ altura da sprite de pulo");
 console.log("✓ sprite de pulo possui canal alfa");
 console.log("✓ grade de pulo usa células 128 × 128");
 console.log("✓ scripts carregam");
+console.log("✓ diálogo abre com texto ainda incompleto");
+console.log("✓ diálogo revela caracteres com o tempo");
+console.log("✓ desenho usa somente os caracteres revelados");
+console.log("✓ primeiro avanço completa a frase");
+console.log("✓ frase pode ser marcada como completa");
+console.log("✓ segundo avanço fecha o diálogo");
 console.log("✓ caminho visual conduz ao portão");
 console.log("✓ borda da calçada separa a área jogável");
 console.log("✓ três folhas secas leves são renderizadas");
@@ -490,6 +522,7 @@ console.log("✓ jogo não redesenha enquanto a página está oculta");
 console.log("✓ relógio reinicia sem salto ao voltar para o jogo");
 console.log("✓ interação bloqueada à distância");
 console.log("✓ diálogo abre");
+console.log("✓ primeiro comando completa a fala sem fechar");
 console.log("✓ destaque do botão E termina durante o diálogo");
 console.log("✓ botão E anunciado como indisponível durante o diálogo");
 console.log("✓ diálogo fecha");
