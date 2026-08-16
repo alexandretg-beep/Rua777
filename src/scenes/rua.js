@@ -22,6 +22,15 @@ Rua777.createRuaScene = function createRuaScene() {
     );
   }
 
+  function drawTreeCanopy(context, elapsedTime) {
+    const leafOffset = Math.round(Math.sin(elapsedTime * 1.8));
+
+    context.fillStyle = "#304d36";
+    context.fillRect(39 + leafOffset, 130, 44, 40);
+    context.fillStyle = "#3b6042";
+    context.fillRect(45 - leafOffset, 124, 30, 18);
+  }
+
   function draw(context, elapsedTime = 0) {
     const { width, height } = Rua777.config;
 
@@ -55,12 +64,7 @@ Rua777.createRuaScene = function createRuaScene() {
     }
 
     // Árvore provisória: somente a copa se move; tronco e colisão ficam fixos.
-    const leafOffset = Math.round(Math.sin(elapsedTime * 1.8));
-
-    context.fillStyle = "#304d36";
-    context.fillRect(39 + leafOffset, 130, 44, 40);
-    context.fillStyle = "#3b6042";
-    context.fillRect(45 - leafOffset, 124, 30, 18);
+    drawTreeCanopy(context, elapsedTime);
     context.fillStyle = "#594536";
     context.fillRect(54, 156, 14, 30);
 
@@ -85,5 +89,15 @@ Rua777.createRuaScene = function createRuaScene() {
     }
   }
 
-  return { obstacles, isPlayerNearGate, draw };
+  function drawForeground(context, player, elapsedTime = 0) {
+    const overlapsCanopy = (
+      player.x + player.width > 39 &&
+      player.x < 83 &&
+      player.y + player.height <= 186
+    );
+
+    if (overlapsCanopy) drawTreeCanopy(context, elapsedTime);
+  }
+
+  return { obstacles, isPlayerNearGate, draw, drawForeground };
 };

@@ -116,6 +116,27 @@ assert.equal(
   false
 );
 
+let foregroundRects = 0;
+const foregroundContext = {
+  fillRect() {
+    foregroundRects += 1;
+  }
+};
+scene.drawForeground(
+  foregroundContext,
+  { x: 45, y: 140, width: 18, height: 39 },
+  0
+);
+assert.equal(foregroundRects, 2);
+
+foregroundRects = 0;
+scene.drawForeground(
+  foregroundContext,
+  { x: 45, y: 166, width: 18, height: 39 },
+  0
+);
+assert.equal(foregroundRects, 0);
+
 assert.equal(
   scene.isPlayerNearGate({ x: 225, y: 129, width: 18, height: 39 }),
   true
@@ -184,7 +205,7 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 13/13");
+console.log("PASS 15/15");
 console.log("✓ scripts carregam");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
@@ -194,6 +215,8 @@ console.log("✓ sprite olha para a esquerda");
 console.log("✓ diagonal normalizada");
 console.log("✓ colisão com muro");
 console.log("✓ colisão com árvore");
+console.log("✓ copa cobre Nila quando ela passa atrás");
+console.log("✓ copa não cobre Nila quando ela passa à frente");
 console.log("✓ proximidade do portão");
 console.log("✓ interação bloqueada à distância");
 console.log("✓ diálogo abre");
