@@ -48,6 +48,7 @@
 - [ ] O direcional aparece em celular ou tablet.
 - [ ] Cada direção movimenta Nila corretamente.
 - [ ] É possível segurar um botão para caminhar.
+- [ ] Deslizar ligeiramente o dedo sem levantá-lo não interrompe a caminhada.
 - [ ] Nila para ao soltar ou cancelar o toque.
 - [ ] O botão E abre e fecha o diálogo.
 - [ ] O botão E é destacado somente quando Nila pode interagir com o portão.

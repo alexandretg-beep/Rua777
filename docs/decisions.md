@@ -14,6 +14,7 @@ Cada decisão deve informar a data, o assunto, o estado e o impacto nos arquivos
 | 2026-08-16 | Cabelo de Nila | Cabelo castanho, ondulado, levemente bagunçado e mais longo, aproximadamente até os ombros. | Canônico |
 | 2026-08-16 | Roupa de Nila | Moletom cinza, calça preta, tênis preto e branco e mochila vinho/vermelha. | Canônico |
 | 2026-08-16 | Controles | O protótipo deve funcionar com teclado e toque. | Implementado |
+| 2026-08-16 | Toque contínuo | Um comando deve permanecer ativo durante pequenos deslizamentos do dedo e terminar ao levantar ou cancelar o toque. | Implementado |
 | 2026-08-16 | Movimento | Manter a direção provoca aceleração leve, sem corrida brusca. | Implementado |
 | 2026-08-16 | Caminhada | A sprite oficial usa seis quadros por direção. | Implementado |
 | 2026-08-16 | Pulo | Nila pode dar um salto curto com espaço ou botão de toque; pode se mover no ar, mas continua respeitando as colisões do chão. | Implementado |

@@ -8,11 +8,12 @@ Este é o painel central de Rua 777. Deve ser atualizado sempre que uma entrega 
 - Plataforma atual: navegador, computador e celular.
 - Publicação: https://alexandretg-beep.github.io/Rua777/
 - Sprint 01: concluída tecnicamente.
-- Testes automáticos: 57 verificações, incluindo sprites, ambiente, interface e pausa segura do loop.
+- Testes automáticos: 61 verificações, incluindo sprites, ambiente, interface, pausa do loop e captura do toque.
 
 ## O que está funcionando
 
 - Movimento em quatro direções por teclado e toque.
+- Toques capturados até o dedo levantar, evitando interrupções ao deslizar ligeiramente para fora do botão.
 - Aceleração leve ao manter uma direção.
 - Animação de caminhada com seis quadros por direção.
 - Pulo curto com quatro quadros por direção, por teclado e toque.
