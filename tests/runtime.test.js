@@ -84,6 +84,21 @@ scene.draw({
 assert.ok(sceneRects.some((rect) => rect.join(",") === "220,155,40,50"));
 assert.ok(sceneRects.some((rect) => rect.join(",") === "0,202,480,3"));
 
+function captureLeaves(elapsedTime) {
+  const leaves = [];
+  scene.draw({
+    fillRect(x, y, width, height) {
+      if (width === 2 && height === 1) leaves.push([x, y]);
+    }
+  }, elapsedTime);
+  return leaves;
+}
+
+const leavesAtStart = captureLeaves(0);
+const leavesLater = captureLeaves(1);
+assert.equal(leavesAtStart.length, 3);
+assert.notDeepEqual(leavesAtStart, leavesLater);
+
 input.press("ArrowRight");
 assert.equal(input.isHeld("ArrowRight"), true);
 assert.equal(input.consumePress("ArrowRight"), true);
@@ -349,7 +364,7 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 51/51");
+console.log("PASS 53/53");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
@@ -363,6 +378,8 @@ console.log("✓ grade de pulo usa células 128 × 128");
 console.log("✓ scripts carregam");
 console.log("✓ caminho visual conduz ao portão");
 console.log("✓ borda da calçada separa a área jogável");
+console.log("✓ três folhas secas leves são renderizadas");
+console.log("✓ folhas secas se deslocam com o tempo");
 console.log("✓ jogo carrega o novo arquivo da sprite");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");

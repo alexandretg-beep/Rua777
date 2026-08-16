@@ -8,7 +8,7 @@ Este é o painel central de Rua 777. Deve ser atualizado sempre que uma entrega 
 - Plataforma atual: navegador, computador e celular.
 - Publicação: https://alexandretg-beep.github.io/Rua777/
 - Sprint 01: concluída tecnicamente.
-- Testes automáticos: 51 verificações, incluindo sprites, aterrissagem, interação móvel e leitura do caminho.
+- Testes automáticos: 53 verificações, incluindo sprites, aterrissagem, interação móvel, caminho e folhas secas.
 
 ## O que está funcionando
 
@@ -21,6 +21,7 @@ Este é o painel central de Rua 777. Deve ser atualizado sempre que uma entrega 
 - Colisões com muros, portão e árvore.
 - Profundidade visual da copa da árvore.
 - Folhas com movimento discreto.
+- Três folhas secas percorrem a calçada em ciclos leves e determinísticos.
 - Interação provisória com o portão.
 - Aviso de interação compatível com teclado e toque, com destaque contextual do botão E.
 - Caminho até o portão, borda da calçada e detalhes ambientais provisórios mais legíveis.

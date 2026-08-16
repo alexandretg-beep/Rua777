@@ -15,6 +15,12 @@ Rua777.createRuaScene = function createRuaScene() {
     height: 35
   });
 
+  const driftingLeaves = Object.freeze([
+    { baseY: 166, speed: 0.035, phase: 0.08, color: "#8a6843" },
+    { baseY: 183, speed: 0.026, phase: 0.42, color: "#73563a" },
+    { baseY: 197, speed: 0.031, phase: 0.73, color: "#967248" }
+  ]);
+
   function isPlayerNearGate(player) {
     return Rua777.collision.intersects(
       Rua777.collision.playerBox(player),
@@ -29,6 +35,18 @@ Rua777.createRuaScene = function createRuaScene() {
     context.fillRect(39 + leafOffset, 130, 44, 40);
     context.fillStyle = "#3b6042";
     context.fillRect(45 - leafOffset, 124, 30, 18);
+  }
+
+  function drawDriftingLeaves(context, elapsedTime) {
+    for (const leaf of driftingLeaves) {
+      const progress = (elapsedTime * leaf.speed + leaf.phase) % 1;
+      const x = Math.round(-8 + progress * (Rua777.config.width + 16));
+      const y = leaf.baseY + Math.round(
+        Math.sin(elapsedTime * 2.2 + leaf.phase * Math.PI * 2) * 3
+      );
+      context.fillStyle = leaf.color;
+      context.fillRect(x, y, 2, 1);
+    }
   }
 
   function draw(context, elapsedTime = 0) {
@@ -78,6 +96,8 @@ Rua777.createRuaScene = function createRuaScene() {
     context.fillRect(42, 236, 54, 2);
     context.fillRect(192, 236, 54, 2);
     context.fillRect(342, 236, 54, 2);
+
+    drawDriftingLeaves(context, elapsedTime);
 
     // Muro e portão.
     context.fillStyle = "#77746d";

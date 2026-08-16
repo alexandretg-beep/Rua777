@@ -21,6 +21,7 @@ O protótipo jogável já permite:
 - Pular com espaço ou com o botão Pulo, usando quatro quadros por direção, poeira discreta na aterrissagem e mantendo as colisões do chão.
 - Encontrar colisões no cenário.
 - Identificar visualmente o caminho até o portão e os limites entre jardim, calçada e rua.
+- Observar folhas secas atravessando discretamente a calçada.
 - Aproximar-se do portão da casa.
 - Receber indicação visual no cenário e no botão de toque quando a interação está disponível.
 - Interagir com uma fala provisória.
