@@ -19,8 +19,10 @@ Rua777.createGame = function createGame(canvas) {
   const player = Rua777.createPlayer(assets);
   const dialogue = Rua777.createDialogue();
   let nearGate = false;
+  let elapsedTime = 0;
 
   function update(deltaTime) {
+    elapsedTime += deltaTime;
     if (dialogue.isOpen()) {
       player.stop();
       if (input.consumePress("KeyE", "Enter", "Space")) dialogue.close();
@@ -35,7 +37,7 @@ Rua777.createGame = function createGame(canvas) {
   }
 
   function draw() {
-    scene.draw(context);
+    scene.draw(context, elapsedTime);
     player.draw(context);
     if (nearGate && !dialogue.isOpen()) Rua777.drawInteractionPrompt(context);
     dialogue.draw(context);
