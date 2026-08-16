@@ -11,7 +11,7 @@ Desenvolver o jogo mantendo a história, os personagens e as decisões canônica
 O primeiro protótipo jogável está em desenvolvimento e já permite:
 
 - Abrir o jogo diretamente pelo `index.html`.
-- Movimentar Nila com WASD ou setas.
+- Movimentar Nila com WASD, setas ou controles de toque.
 - Encontrar colisões no cenário.
 - Aproximar-se do portão da casa.
 - Interagir com uma fala provisória.
@@ -30,9 +30,9 @@ Não é necessário instalar dependências para jogar.
 
 | Ação | Teclas |
 |---|---|
-| Caminhar | WASD ou setas |
-| Interagir | E |
-| Fechar diálogo | E, Enter ou espaço |
+| Caminhar | WASD, setas ou direcional de toque |
+| Interagir | E ou botão E na tela |
+| Fechar diálogo | E, Enter, espaço ou botão E na tela |
 
 ## Testes
 
