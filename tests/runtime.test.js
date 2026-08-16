@@ -86,7 +86,7 @@ assert.ok(acceleratedStep > firstStep);
 accelerating.update(input, 0.05, scene.obstacles);
 assert.equal(accelerating.state.speed, Rua777.config.playerSpeed);
 
-const sprite = { naturalWidth: 1230, naturalHeight: 1278 };
+const sprite = { naturalWidth: 768, naturalHeight: 512 };
 const drawnRows = [];
 const spriteContext = {
   fillRect() {},
@@ -105,14 +105,15 @@ dispatch("keydown", "KeyD");
 facingRight.update(input, 0.05, scene.obstacles);
 dispatch("keyup", "KeyD");
 facingRight.draw(spriteContext);
-assert.equal(drawnRows.pop(), 319);
+assert.equal(drawnRows.pop(), 128);
 
 const facingLeft = Rua777.createPlayer(spriteAssets);
 dispatch("keydown", "KeyA");
 facingLeft.update(input, 0.05, scene.obstacles);
 dispatch("keyup", "KeyA");
 facingLeft.draw(spriteContext);
-assert.equal(drawnRows.pop(), 638);
+assert.equal(drawnRows.pop(), 256);
+assert.equal(facingLeft.animation.framesPerDirection, 6);
 
 const diagonal = Rua777.createPlayer();
 dispatch("keydown", "KeyD");
@@ -233,7 +234,7 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 21/21");
+console.log("PASS 22/22");
 console.log("✓ scripts carregam");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
@@ -245,6 +246,7 @@ console.log("✓ velocidade reinicia ao soltar");
 console.log("✓ sprite olha para a direita");
 console.log("✓ sprite olha para a esquerda");
 console.log("✓ recortes da sprite usam coordenadas inteiras");
+console.log("✓ caminhada usa seis quadros por direção");
 console.log("✓ diagonal normalizada");
 console.log("✓ colisão com muro");
 console.log("✓ colisão com árvore");
