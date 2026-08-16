@@ -122,6 +122,37 @@ input.press("ArrowDown");
 dispatch("pagehide");
 assert.equal(input.isHeld("ArrowDown"), false);
 
+const touchHandlers = {};
+let capturedPointer = null;
+const touchClasses = new Set();
+const touchButton = {
+  dataset: { input: "ArrowRight" },
+  addEventListener(type, handler) {
+    touchHandlers[type] = handler;
+  },
+  setPointerCapture(pointerId) {
+    capturedPointer = pointerId;
+  },
+  classList: {
+    add(name) { touchClasses.add(name); },
+    remove(name) { touchClasses.delete(name); }
+  }
+};
+global.document = {
+  querySelectorAll() {
+    return [touchButton];
+  }
+};
+const touchInput = Rua777.createInput();
+const pointerEvent = { pointerId: 7, preventDefault() {} };
+touchHandlers.pointerdown(pointerEvent);
+assert.equal(capturedPointer, 7);
+assert.equal(touchInput.isHeld("ArrowRight"), true);
+assert.equal(touchHandlers.pointerleave, undefined);
+touchHandlers.lostpointercapture(pointerEvent);
+assert.equal(touchInput.isHeld("ArrowRight"), false);
+delete global.document;
+
 const horizontal = Rua777.createPlayer();
 dispatch("keydown", "KeyD");
 horizontal.update(input, 0.05, scene.obstacles);
@@ -401,7 +432,7 @@ visibilityListeners[0]();
 scheduledFrames.shift()(performance.now() + 5000);
 assert.equal(mainUpdates, 0);
 
-console.log("PASS 57/57");
+console.log("PASS 61/61");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
@@ -422,6 +453,10 @@ console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
 console.log("✓ entrada de toque para pulo");
 console.log("✓ pulo usa uma ativação por pressão");
+console.log("✓ toque captura o ponteiro ativo");
+console.log("✓ direção permanece ativa durante pequeno deslizamento do dedo");
+console.log("✓ sair visualmente do botão não cancela o toque");
+console.log("✓ perda da captura libera a direção");
 console.log("✓ controles liberados ao perder foco");
 console.log("✓ controles liberados ao trocar de página");
 console.log("✓ movimento horizontal");

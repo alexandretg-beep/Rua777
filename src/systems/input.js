@@ -3,6 +3,7 @@ window.Rua777 = window.Rua777 || {};
 Rua777.createInput = function createInput() {
   const held = new Set();
   const pressed = new Set();
+  const touchStates = [];
   const gameKeys = new Set([
     "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight",
     "KeyW", "KeyA", "KeyS", "KeyD",
@@ -39,18 +40,27 @@ Rua777.createInput = function createInput() {
 
     document.querySelectorAll("[data-input]").forEach((button) => {
       const code = button.dataset.input;
+      const activePointers = new Set();
+      touchStates.push({ button, activePointers });
 
       button.addEventListener("pointerdown", (event) => {
         event.preventDefault();
+        activePointers.add(event.pointerId);
+        if (typeof button.setPointerCapture === "function") {
+          button.setPointerCapture(event.pointerId);
+        }
         press(code);
         button.classList.add("is-pressed");
       });
 
-      ["pointerup", "pointercancel", "pointerleave"].forEach((type) => {
+      ["pointerup", "pointercancel", "lostpointercapture"].forEach((type) => {
         button.addEventListener(type, (event) => {
           event.preventDefault();
-          release(code);
-          button.classList.remove("is-pressed");
+          activePointers.delete(event.pointerId);
+          if (activePointers.size === 0) {
+            release(code);
+            button.classList.remove("is-pressed");
+          }
         });
       });
     });
@@ -59,6 +69,7 @@ Rua777.createInput = function createInput() {
   function clear() {
     held.clear();
     pressed.clear();
+    touchStates.forEach(({ activePointers }) => activePointers.clear());
 
     if (
       typeof document !== "undefined" &&

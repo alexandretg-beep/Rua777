@@ -26,6 +26,7 @@ Use este checklist antes de integrar uma alteração em `main`.
 
 - [ ] Teclado funciona.
 - [ ] Toque funciona.
+- [ ] Pequenos deslizamentos do dedo não interrompem o botão antes do toque terminar.
 - [ ] Espaço e botão Pulo executam apenas um salto por pressão.
 - [ ] Nila para ao soltar, trocar de aba ou trocar de aplicativo.
 - [ ] Ao retornar de outra aba ou aplicativo, a animação continua sem salto ou aceleração repentina.
