@@ -8,7 +8,7 @@ const listeners = {};
 
 const officialSpritePath = path.join(
   root,
-  "assets/characters/nila/nila-walk-6frames.png"
+  "assets/characters/nila/nila-walk-teen-v2.png"
 );
 const officialSprite = fs.readFileSync(officialSpritePath);
 assert.equal(officialSprite.subarray(1, 4).toString("ascii"), "PNG");
@@ -24,7 +24,7 @@ assert.deepEqual(
 
 const jumpSpritePath = path.join(
   root,
-  "assets/characters/nila/nila-jump-4frames.png"
+  "assets/characters/nila/nila-jump-teen-v2.png"
 );
 const jumpSpriteFile = fs.readFileSync(jumpSpritePath);
 assert.equal(jumpSpriteFile.subarray(1, 4).toString("ascii"), "PNG");
@@ -34,6 +34,8 @@ assert.equal(jumpSpriteWidth, 512);
 assert.equal(jumpSpriteHeight, 512);
 assert.equal(jumpSpriteFile[25], 6);
 assert.deepEqual([jumpSpriteWidth / 4, jumpSpriteHeight / 4], [128, 128]);
+assert.equal(fs.existsSync(path.join(root, "assets/characters/nila/nila-walk-6frames.png")), false);
+assert.equal(fs.existsSync(path.join(root, "assets/characters/nila/nila-jump-4frames.png")), false);
 
 global.window = globalThis;
 global.addEventListener = (type, handler) => {
@@ -358,8 +360,8 @@ global.document = {
 
 const game = Rua777.createGame(canvas);
 assert.deepEqual(assetLoads, [
-  ["nila-walk", "./assets/characters/nila/nila-walk-6frames.png"],
-  ["nila-jump", "./assets/characters/nila/nila-jump-4frames.png"]
+  ["nila-walk", "./assets/characters/nila/nila-walk-teen-v2.png"],
+  ["nila-jump", "./assets/characters/nila/nila-jump-teen-v2.png"]
 ]);
 
 dispatch("keydown", "KeyD");
@@ -458,7 +460,7 @@ visibilityListeners[0]();
 scheduledFrames.shift()(performance.now() + 5000);
 assert.equal(mainUpdates, 0);
 
-console.log("PASS 68/68");
+console.log("PASS 70/70");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
@@ -469,6 +471,8 @@ console.log("✓ largura da sprite de pulo");
 console.log("✓ altura da sprite de pulo");
 console.log("✓ sprite de pulo possui canal alfa");
 console.log("✓ grade de pulo usa células 128 × 128");
+console.log("✓ sprite de caminhada infantil foi removida");
+console.log("✓ sprite de pulo infantil foi removida");
 console.log("✓ scripts carregam");
 console.log("✓ diálogo abre com texto ainda incompleto");
 console.log("✓ diálogo revela caracteres com o tempo");

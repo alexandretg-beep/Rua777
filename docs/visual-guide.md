@@ -17,6 +17,9 @@ A rua deve transmitir calma, mudança e uma estranheza muito leve. O protótipo 
 ## Nila
 
 - Deve parecer uma adolescente de 16 anos, nunca uma criança.
+- Silhueta mais alta e esguia, pernas mais longas e cabeça proporcionalmente menor.
+- Olhar atento, sobrancelhas focadas e postura firme transmitem coragem e curiosidade investigativa.
+- O ar de detetive não deve depender de chapéu, sobretudo, arma ou acessórios estereotipados.
 - Cabelo castanho, ondulado, levemente bagunçado e aproximadamente até os ombros.
 - Moletom cinza, calça preta, tênis preto e branco e mochila vinho/vermelha.
 - A silhueta deve permanecer reconhecível em todas as direções.

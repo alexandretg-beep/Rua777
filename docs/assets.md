@@ -6,8 +6,8 @@ Este arquivo identifica quais artes o jogo deve carregar. Um ativo só é oficia
 
 | Identificador | Arquivo oficial | Formato | Uso |
 |---|---|---|---|
-| `nila-walk` | `assets/characters/nila/nila-walk-6frames.png` | PNG RGBA, 768 × 512, grade 6 × 4 | Caminhada de Nila em frente, direita, esquerda e costas |
-| `nila-jump` | `assets/characters/nila/nila-jump-4frames.png` | PNG RGBA, 512 × 512, grade 4 × 4 | Pulo de Nila em frente, direita, esquerda e costas |
+| `nila-walk` | `assets/characters/nila/nila-walk-teen-v2.png` | PNG RGBA, 768 × 512, grade 6 × 4 | Caminhada adolescente de Nila em frente, direita, esquerda e costas |
+| `nila-jump` | `assets/characters/nila/nila-jump-teen-v2.png` | PNG RGBA, 512 × 512, grade 4 × 4 | Pulo adolescente de Nila em frente, direita, esquerda e costas |
 
 ### Ordem da grade de Nila
 
@@ -19,6 +19,7 @@ Este arquivo identifica quais artes o jogo deve carregar. Um ativo só é oficia
 - Cada linha: seis quadros.
 - Pés alinhados na base da célula.
 - Cabelo e mochila inteiros dentro da célula.
+- Silhueta alta e esguia, com margem transparente em todos os lados.
 
 ### Ordem da grade de pulo
 
@@ -26,6 +27,7 @@ Este arquivo identifica quais artes o jogo deve carregar. Um ativo só é oficia
 - Colunas: preparação, subida, ápice e aterrissagem.
 - Cada célula: 128 × 128.
 - Cabelo até os ombros, pés e mochila inteiros dentro da célula.
+- Proporções, rosto e atitude consistentes com `nila-walk`.
 
 ## Regras
 

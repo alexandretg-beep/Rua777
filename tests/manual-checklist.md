@@ -10,13 +10,15 @@
 
 ## Sprite de Nila
 
-- [ ] O jogo carrega `nila-walk-6frames.png`.
+- [ ] O jogo carrega `nila-walk-teen-v2.png` e `nila-jump-teen-v2.png`.
 - [ ] Frente, direita, esquerda e costas mostram a direção correta.
 - [ ] Os seis quadros de cada direção aparecem durante a caminhada.
 - [ ] A cabeça não é cortada ao começar a subir.
 - [ ] Cabelo, mãos, pés e mochila permanecem inteiros em todos os quadros.
 - [ ] Os pés permanecem alinhados sem tremor vertical exagerado.
 - [ ] Nila continua parecendo uma adolescente de 16 anos.
+- [ ] Nila parece mais alta e esguia, sem cabeça grande ou pernas infantis.
+- [ ] Olhar e postura comunicam atenção, coragem e curiosidade investigativa.
 - [ ] A aparência corresponde a `docs/canon.md` e `docs/assets.md`.
 
 ## Pulo
