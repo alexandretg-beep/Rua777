@@ -20,6 +20,16 @@
 - [ ] Nila não sai dos limites da área jogável.
 - [ ] As teclas do jogo não rolam a página.
 
+## Toque
+
+- [ ] O direcional aparece em celular ou tablet.
+- [ ] Cada direção movimenta Nila corretamente.
+- [ ] É possível segurar um botão para caminhar.
+- [ ] Nila para ao soltar ou cancelar o toque.
+- [ ] O botão E abre e fecha o diálogo.
+- [ ] A página não rola nem amplia durante os controles.
+- [ ] Teclado continua funcionando em computadores.
+
 ## Colisões
 
 - [ ] Nila não atravessa o muro esquerdo.

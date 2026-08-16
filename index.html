@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Rua 777</title>
   <link rel="stylesheet" href="./src/styles/game.css">
 </head>
@@ -10,8 +10,19 @@
   <main class="game-shell">
     <h1>Rua 777</h1>
     <canvas id="game" width="480" height="270" aria-label="Área do jogo Rua 777"></canvas>
+
+    <section class="touch-controls" aria-label="Controles de toque">
+      <div class="touch-dpad" aria-label="Movimento">
+        <button type="button" class="touch-button touch-up" data-input="ArrowUp" aria-label="Mover para cima">▲</button>
+        <button type="button" class="touch-button touch-left" data-input="ArrowLeft" aria-label="Mover para esquerda">◀</button>
+        <button type="button" class="touch-button touch-down" data-input="ArrowDown" aria-label="Mover para baixo">▼</button>
+        <button type="button" class="touch-button touch-right" data-input="ArrowRight" aria-label="Mover para direita">▶</button>
+      </div>
+      <button type="button" class="touch-button touch-action" data-input="KeyE" aria-label="Interagir">E</button>
+    </section>
+
     <p class="status">Primeira caminhada jogável</p>
-    <p class="controls">Mover: WASD ou setas · Interagir: E</p>
+    <p class="controls">Mover: WASD, setas ou toque · Interagir: E</p>
   </main>
   <script src="./src/config.js"></script>
   <script src="./src/systems/assets.js"></script>
