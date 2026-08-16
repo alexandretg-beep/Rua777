@@ -56,6 +56,14 @@ input.press("KeyE");
 assert.equal(input.consumePress("KeyE"), true);
 input.release("KeyE");
 
+input.press("ArrowLeft");
+dispatch("blur");
+assert.equal(input.isHeld("ArrowLeft"), false);
+
+input.press("ArrowDown");
+dispatch("pagehide");
+assert.equal(input.isHeld("ArrowDown"), false);
+
 const horizontal = Rua777.createPlayer();
 dispatch("keydown", "KeyD");
 horizontal.update(input, 0.05, scene.obstacles);
@@ -205,10 +213,12 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 15/15");
+console.log("PASS 17/17");
 console.log("✓ scripts carregam");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
+console.log("✓ controles liberados ao perder foco");
+console.log("✓ controles liberados ao trocar de página");
 console.log("✓ movimento horizontal");
 console.log("✓ sprite olha para a direita");
 console.log("✓ sprite olha para a esquerda");

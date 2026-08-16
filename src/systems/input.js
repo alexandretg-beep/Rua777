@@ -73,6 +73,7 @@ Rua777.createInput = function createInput() {
   window.addEventListener("keydown", onKeyDown);
   window.addEventListener("keyup", onKeyUp);
   window.addEventListener("blur", clear);
+  window.addEventListener("pagehide", clear);
   bindTouchControls();
 
   return {
