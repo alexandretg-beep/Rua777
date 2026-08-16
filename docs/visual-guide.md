@@ -16,4 +16,12 @@ A rua deve transmitir calma, mudança e uma estranheza muito leve. O protótipo 
 
 ## Nila
 
-Toda arte futura deve respeitar a aparência registrada em `docs/canon.md`. Placeholders precisam ser claramente identificados.
+- Deve parecer uma adolescente de 16 anos, nunca uma criança.
+- Cabelo castanho, ondulado, levemente bagunçado e aproximadamente até os ombros.
+- Moletom cinza, calça preta, tênis preto e branco e mochila vinho/vermelha.
+- A silhueta deve permanecer reconhecível em todas as direções.
+- Cabelo, mãos, pés e mochila devem caber integralmente em cada célula.
+- Os pés devem usar uma linha de base estável para evitar tremor.
+- A sprite oficial e sua grade estão registradas em `docs/assets.md`.
+
+Toda arte futura deve respeitar `docs/canon.md` e `docs/decisions.md`. Placeholders precisam ser claramente identificados.
