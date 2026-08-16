@@ -196,7 +196,20 @@ const canvas = {
   }
 };
 
+const assetLoads = [];
+Rua777.createAssets = () => ({
+  loadImage(key, url) {
+    assetLoads.push([key, url]);
+  },
+  getImage() {
+    return null;
+  }
+});
+
 const game = Rua777.createGame(canvas);
+assert.deepEqual(assetLoads, [
+  ["nila-walk", "./assets/characters/nila/nila-walk-6frames.png"]
+]);
 
 dispatch("keydown", "KeyD");
 for (let frame = 0; frame < 30; frame += 1) {
@@ -241,8 +254,9 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 23/23");
+console.log("PASS 24/24");
 console.log("✓ scripts carregam");
+console.log("✓ jogo carrega o novo arquivo da sprite");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
 console.log("✓ controles liberados ao perder foco");
