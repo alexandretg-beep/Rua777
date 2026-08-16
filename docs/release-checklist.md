@@ -8,6 +8,7 @@ Use este checklist antes de integrar uma alteração em `main`.
 - [ ] O PR descreve causa, impacto e validação.
 - [ ] `npm test` passou.
 - [ ] Nenhum erro aparece no console do navegador.
+- [ ] Controles não reescrevem atributos ou classes do DOM em todos os quadros.
 - [ ] Arquivos alterados usam nomes ou versões que evitam cache antigo.
 
 ## Movimento e sprites
