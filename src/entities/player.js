@@ -15,7 +15,7 @@ Rua777.createPlayer = function createPlayer(assets) {
     frame: 0,
     elapsed: 0,
     frameDuration: 0.14,
-    framesPerDirection: 4
+    framesPerDirection: 6
   };
 
   const directionRow = Object.freeze({ down: 0, right: 1, left: 2, up: 3 });
@@ -120,7 +120,7 @@ Rua777.createPlayer = function createPlayer(assets) {
 
     const sprite = assets && assets.getImage("nila-walk");
     if (sprite) {
-      const sourceWidth = Math.floor(sprite.naturalWidth / 4);
+      const sourceWidth = Math.floor(sprite.naturalWidth / animation.framesPerDirection);
       const sourceHeight = Math.floor(sprite.naturalHeight / 4);
       const destinationWidth = 72;
       const destinationHeight = 80;
