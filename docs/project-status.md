@@ -8,7 +8,7 @@ Este é o painel central de Rua 777. Deve ser atualizado sempre que uma entrega 
 - Plataforma atual: navegador, computador e celular.
 - Publicação: https://alexandretg-beep.github.io/Rua777/
 - Sprint 01: concluída tecnicamente.
-- Testes automáticos: 24 verificações antes desta reorganização.
+- Testes automáticos: 29 verificações, incluindo formato e grade da sprite oficial.
 
 ## O que está funcionando
 
