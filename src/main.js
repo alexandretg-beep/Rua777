@@ -6,14 +6,21 @@
   }
 
   const game = Rua777.createGame(canvas);
+  const updateStep = 1 / 60;
   let previousTime = performance.now();
+  let accumulatedTime = 0;
 
   function frame(currentTime) {
     const elapsedSeconds = (currentTime - previousTime) / 1000;
     const deltaTime = Math.min(elapsedSeconds, Rua777.config.maxDeltaTime);
     previousTime = currentTime;
+    accumulatedTime += deltaTime;
 
-    game.update(deltaTime);
+    while (accumulatedTime >= updateStep) {
+      game.update(updateStep);
+      accumulatedTime -= updateStep;
+    }
+
     game.draw();
 
     requestAnimationFrame(frame);
