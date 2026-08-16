@@ -297,6 +297,7 @@ const interactionButton = {
     interactionAttributes[name] = value;
   }
 };
+const visibilityListeners = [];
 global.document = {
   querySelector(selector) {
     if (selector === '[data-input="KeyE"]') return interactionButton;
@@ -355,6 +356,7 @@ assert.ok(
 );
 
 global.document = {
+  hidden: true,
   querySelector(selector) {
     if (selector === "#game") return canvas;
     if (selector === '[data-input="KeyE"]') {
@@ -364,12 +366,42 @@ global.document = {
       };
     }
     assert.fail(`Seletor inesperado: ${selector}`);
+  },
+  addEventListener(type, handler) {
+    if (type === "visibilitychange") visibilityListeners.push(handler);
   }
 };
-global.requestAnimationFrame = () => 1;
+const scheduledFrames = [];
+global.requestAnimationFrame = (callback) => {
+  scheduledFrames.push(callback);
+  return scheduledFrames.length;
+};
+const originalCreateGame = Rua777.createGame;
+let mainUpdates = 0;
+let mainDraws = 0;
+Rua777.createGame = (mainCanvas) => {
+  const createdGame = originalCreateGame(mainCanvas);
+  return {
+    update(deltaTime) {
+      mainUpdates += 1;
+      createdGame.update(deltaTime);
+    },
+    draw() {
+      mainDraws += 1;
+      createdGame.draw();
+    }
+  };
+};
 load("src/main.js");
+scheduledFrames.shift()(performance.now() + 1000);
+assert.equal(mainUpdates, 0);
+assert.equal(mainDraws, 1);
+global.document.hidden = false;
+visibilityListeners[0]();
+scheduledFrames.shift()(performance.now() + 5000);
+assert.equal(mainUpdates, 0);
 
-console.log("PASS 54/54");
+console.log("PASS 57/57");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
@@ -418,6 +450,9 @@ console.log("✓ portão destacado quando a interação está disponível");
 console.log("✓ botão E destacado quando a interação está disponível");
 console.log("✓ botão E anunciado como disponível");
 console.log("✓ estado do botão E não reescreve o DOM a cada quadro");
+console.log("✓ jogo não atualiza enquanto a página está oculta");
+console.log("✓ jogo não redesenha enquanto a página está oculta");
+console.log("✓ relógio reinicia sem salto ao voltar para o jogo");
 console.log("✓ interação bloqueada à distância");
 console.log("✓ diálogo abre");
 console.log("✓ destaque do botão E termina durante o diálogo");
