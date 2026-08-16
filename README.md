@@ -12,7 +12,9 @@ Desenvolver o jogo mantendo a história, os personagens e as decisões canônica
 
 ## Status
 
-O primeiro protótipo jogável está em desenvolvimento e já permite:
+A Sprint 01 está implementada tecnicamente. A validação visual no iPhone continua registrada em [docs/project-status.md](docs/project-status.md).
+
+O protótipo jogável já permite:
 
 - Abrir o jogo diretamente pelo `index.html`.
 - Movimentar Nila com WASD, setas ou controles de toque, com aceleração leve e seis quadros de caminhada por direção.
@@ -52,9 +54,20 @@ A verificação automatizada cobre carregamento dos scripts, entrada compartilha
 
 - `src/`: programação do jogo.
 - `assets/`: artes, interface e sons.
-- `docs/`: cânone e documentação.
 - `tests/`: testes automatizados e checklist manual.
 - `AGENTS.md`: regras obrigatórias para agentes de IA.
+
+## Controle do projeto
+
+| Documento | Função |
+|---|---|
+| [Status](docs/project-status.md) | Estado atual, pendências e próxima entrega |
+| [Cânone](docs/canon.md) | História e personagens aprovados |
+| [Decisões](docs/decisions.md) | Preferências e aprovações registradas |
+| [Ativos](docs/assets.md) | Arquivos oficiais usados pelo jogo |
+| [Roadmap](docs/roadmap.md) | Marcos técnicos e limites de escopo |
+| [Checklist de publicação](docs/release-checklist.md) | Verificação obrigatória antes de publicar |
+| [Sprint 01](docs/sprint-01.md) | Escopo e resultado do primeiro marco |
 
 ## Cânone
 
