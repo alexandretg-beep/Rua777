@@ -70,7 +70,7 @@ horizontal.update(input, 0.05, scene.obstacles);
 dispatch("keyup", "KeyD");
 assert.equal(horizontal.state.x, 108.25);
 
-const sprite = { naturalWidth: 400, naturalHeight: 400 };
+const sprite = { naturalWidth: 1230, naturalHeight: 1278 };
 const drawnRows = [];
 const spriteContext = {
   fillRect() {},
@@ -89,14 +89,14 @@ dispatch("keydown", "KeyD");
 facingRight.update(input, 0.05, scene.obstacles);
 dispatch("keyup", "KeyD");
 facingRight.draw(spriteContext);
-assert.equal(drawnRows.pop(), 100);
+assert.equal(drawnRows.pop(), 319);
 
 const facingLeft = Rua777.createPlayer(spriteAssets);
 dispatch("keydown", "KeyA");
 facingLeft.update(input, 0.05, scene.obstacles);
 dispatch("keyup", "KeyA");
 facingLeft.draw(spriteContext);
-assert.equal(drawnRows.pop(), 200);
+assert.equal(drawnRows.pop(), 638);
 
 const diagonal = Rua777.createPlayer();
 dispatch("keydown", "KeyD");
@@ -217,7 +217,7 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 18/18");
+console.log("PASS 19/19");
 console.log("✓ scripts carregam");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
@@ -226,6 +226,7 @@ console.log("✓ controles liberados ao trocar de página");
 console.log("✓ movimento horizontal");
 console.log("✓ sprite olha para a direita");
 console.log("✓ sprite olha para a esquerda");
+console.log("✓ recortes da sprite usam coordenadas inteiras");
 console.log("✓ diagonal normalizada");
 console.log("✓ colisão com muro");
 console.log("✓ colisão com árvore");
