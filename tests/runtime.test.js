@@ -46,6 +46,16 @@ function load(relativePath) {
 const scene = Rua777.createRuaScene();
 const input = Rua777.createInput();
 
+input.press("ArrowRight");
+assert.equal(input.isHeld("ArrowRight"), true);
+assert.equal(input.consumePress("ArrowRight"), true);
+input.release("ArrowRight");
+assert.equal(input.isHeld("ArrowRight"), false);
+
+input.press("KeyE");
+assert.equal(input.consumePress("KeyE"), true);
+input.release("KeyE");
+
 const horizontal = Rua777.createPlayer();
 dispatch("keydown", "KeyD");
 horizontal.update(input, 0.05, scene.obstacles);
@@ -146,8 +156,10 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 9/9");
+console.log("PASS 11/11");
 console.log("✓ scripts carregam");
+console.log("✓ entrada de toque para movimento");
+console.log("✓ entrada de toque para interação");
 console.log("✓ movimento horizontal");
 console.log("✓ diagonal normalizada");
 console.log("✓ colisão com muro");
