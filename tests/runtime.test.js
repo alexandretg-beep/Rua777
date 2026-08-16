@@ -115,6 +115,13 @@ facingLeft.draw(spriteContext);
 assert.equal(drawnRows.pop(), 256);
 assert.equal(facingLeft.animation.framesPerDirection, 6);
 
+const facingUp = Rua777.createPlayer(spriteAssets);
+dispatch("keydown", "KeyW");
+facingUp.update(input, 0.05, scene.obstacles);
+dispatch("keyup", "KeyW");
+facingUp.draw(spriteContext);
+assert.equal(drawnRows.pop(), 384);
+
 const diagonal = Rua777.createPlayer();
 dispatch("keydown", "KeyD");
 dispatch("keydown", "KeyS");
@@ -234,7 +241,7 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 22/22");
+console.log("PASS 23/23");
 console.log("✓ scripts carregam");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
@@ -247,6 +254,7 @@ console.log("✓ sprite olha para a direita");
 console.log("✓ sprite olha para a esquerda");
 console.log("✓ recortes da sprite usam coordenadas inteiras");
 console.log("✓ caminhada usa seis quadros por direção");
+console.log("✓ linha completa de subida é selecionada");
 console.log("✓ diagonal normalizada");
 console.log("✓ colisão com muro");
 console.log("✓ colisão com árvore");
