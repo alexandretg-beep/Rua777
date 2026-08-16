@@ -211,8 +211,8 @@ Rua777.createPlayer = function createPlayer(assets) {
     if (sprite) {
       const sourceWidth = Math.floor(sprite.naturalWidth / framesPerDirection);
       const sourceHeight = Math.floor(sprite.naturalHeight / 4);
-      const destinationWidth = 72;
-      const destinationHeight = 80;
+      const destinationWidth = 78;
+      const destinationHeight = 88;
 
       context.drawImage(
         sprite,

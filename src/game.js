@@ -11,8 +11,8 @@ Rua777.createGame = function createGame(canvas) {
     : { getImage() { return null; } };
 
   if (assets.loadImage) {
-    assets.loadImage("nila-walk", "./assets/characters/nila/nila-walk-6frames.png");
-    assets.loadImage("nila-jump", "./assets/characters/nila/nila-jump-4frames.png");
+    assets.loadImage("nila-walk", "./assets/characters/nila/nila-walk-teen-v2.png");
+    assets.loadImage("nila-jump", "./assets/characters/nila/nila-jump-teen-v2.png");
   }
 
   const input = Rua777.createInput();

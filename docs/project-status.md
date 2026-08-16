@@ -8,7 +8,7 @@ Este é o painel central de Rua 777. Deve ser atualizado sempre que uma entrega 
 - Plataforma atual: navegador, computador e celular.
 - Publicação: https://alexandretg-beep.github.io/Rua777/
 - Sprint 01: concluída tecnicamente.
-- Testes automáticos: 68 verificações, incluindo sprites, ambiente, interface, toque e progressão do diálogo.
+- Testes automáticos: 70 verificações, incluindo substituição completa das sprites anteriores.
 
 ## O que está funcionando
 
@@ -16,6 +16,7 @@ Este é o painel central de Rua 777. Deve ser atualizado sempre que uma entrega 
 - Toques capturados até o dedo levantar, evitando interrupções ao deslizar ligeiramente para fora do botão.
 - Aceleração leve ao manter uma direção.
 - Animação de caminhada com seis quadros por direção.
+- Nila mais alta, esguia e claramente adolescente, com olhar atento e postura corajosa.
 - Pulo curto com quatro quadros por direção, por teclado e toque.
 - Movimento durante o salto sem atravessar obstáculos.
 - Poeira curta de aterrissagem renderizada pelo canvas.

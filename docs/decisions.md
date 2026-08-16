@@ -11,6 +11,8 @@ Cada decisão deve informar a data, o assunto, o estado e o impacto nos arquivos
 | Data | Assunto | Decisão | Estado |
 |---|---|---|---|
 | 2026-08-16 | Idade de Nila | Nila tem oficialmente 16 anos e não deve parecer criança. | Canônico |
+| 2026-08-16 | Proporções de Nila | Nila deve ser mais alta e esguia, com pernas mais longas e cabeça menor em relação ao corpo, aparentando claramente 16 anos. | Canônico |
+| 2026-08-16 | Atitude visual de Nila | Olhar atento e postura firme devem transmitir coragem e um ar investigativo discreto, sem fantasia de detetive. | Canônico |
 | 2026-08-16 | Cabelo de Nila | Cabelo castanho, ondulado, levemente bagunçado e mais longo, aproximadamente até os ombros. | Canônico |
 | 2026-08-16 | Roupa de Nila | Moletom cinza, calça preta, tênis preto e branco e mochila vinho/vermelha. | Canônico |
 | 2026-08-16 | Controles | O protótipo deve funcionar com teclado e toque. | Implementado |
