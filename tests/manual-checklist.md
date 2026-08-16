@@ -49,6 +49,13 @@
 - [ ] É possível interagir novamente depois de fechar.
 - [ ] A fala está identificada como provisória na documentação.
 
+## Ambiente
+
+- [ ] As folhas balançam lentamente.
+- [ ] O tronco da árvore permanece imóvel.
+- [ ] A colisão da árvore não acompanha a animação visual.
+- [ ] A animação continua suave durante movimento e diálogo.
+
 ## Cânone
 
 - [ ] Nila tem 16 anos.
