@@ -32,7 +32,10 @@ Rua777.createInput = function createInput() {
   }
 
   function bindTouchControls() {
-    if (typeof document === "undefined") return;
+    if (
+      typeof document === "undefined" ||
+      typeof document.querySelectorAll !== "function"
+    ) return;
 
     document.querySelectorAll("[data-input]").forEach((button) => {
       const code = button.dataset.input;
@@ -57,7 +60,10 @@ Rua777.createInput = function createInput() {
     held.clear();
     pressed.clear();
 
-    if (typeof document !== "undefined") {
+    if (
+      typeof document !== "undefined" &&
+      typeof document.querySelectorAll === "function"
+    ) {
       document.querySelectorAll("[data-input].is-pressed").forEach((button) => {
         button.classList.remove("is-pressed");
       });
