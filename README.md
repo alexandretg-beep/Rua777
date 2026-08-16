@@ -24,7 +24,7 @@ O protótipo jogável já permite:
 - Observar folhas secas atravessando discretamente a calçada.
 - Aproximar-se do portão da casa.
 - Receber indicação visual no cenário e no botão de toque quando a interação está disponível.
-- Interagir com uma fala provisória.
+- Interagir com uma fala provisória revelada progressivamente e avançar pelo teclado ou toque.
 
 As formas atuais são placeholders e não substituem as artes oficiais.
 
@@ -43,7 +43,7 @@ Não é necessário instalar dependências para jogar.
 | Caminhar | WASD, setas ou direcional de toque |
 | Pular | Espaço ou botão Pulo na tela |
 | Interagir | E ou botão E na tela |
-| Fechar diálogo | E, Enter, espaço ou botão E na tela |
+| Completar/fechar diálogo | E, Enter, espaço ou botão E na tela |
 
 ## Testes
 

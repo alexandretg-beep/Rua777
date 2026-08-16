@@ -41,3 +41,9 @@ Use este checklist antes de integrar uma alteração em `main`.
 - [ ] Novas decisões foram registradas em `docs/decisions.md`.
 - [ ] `docs/project-status.md` foi atualizado.
 - [ ] Ativos novos ou substituídos foram registrados em `docs/assets.md`.
+
+## Diálogo
+
+- [ ] O texto aparece progressivamente sem cortar caracteres.
+- [ ] O primeiro comando completa a frase e o comando seguinte fecha a caixa.
+- [ ] Teclado e botão E executam o mesmo avanço.

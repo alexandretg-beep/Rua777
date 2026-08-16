@@ -26,6 +26,7 @@ Cada decisão deve informar a data, o assunto, o estado e o impacto nos arquivos
 | 2026-08-16 | Leitura do cenário | Detalhes provisórios devem orientar o caminho até o portão com contraste discreto, sem poluir a cena. | Implementado |
 | 2026-08-16 | Ambiente | Elementos naturais podem ter animações discretas, como folhas balançando. | Implementado |
 | 2026-08-16 | Diálogo do portão | “Então esta é a nossa nova casa...” continua sendo provisório. | Não canônico |
+| 2026-08-16 | Ritmo de diálogo | A fala aparece progressivamente; o primeiro comando completa o texto e o seguinte fecha a caixa. | Implementado |
 
 ## Regra de precedência
 
