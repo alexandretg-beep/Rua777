@@ -76,6 +76,17 @@ canvas {
   transform: scale(0.96);
 }
 
+.touch-action.is-available {
+  border-color: #d4c6ab;
+  box-shadow: 0 0 0 3px rgba(212, 198, 171, 0.18);
+  animation: action-ready 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes action-ready {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
 .touch-up { grid-area: 1 / 2; }
 .touch-left { grid-area: 2 / 1; }
 .touch-down { grid-area: 2 / 2; }
@@ -102,6 +113,10 @@ canvas {
 
 @media (hover: none), (pointer: coarse) {
   .touch-controls { display: flex; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .touch-action.is-available { animation: none; }
 }
 
 @media (max-height: 540px) and (orientation: landscape) {
