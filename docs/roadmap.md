@@ -15,6 +15,7 @@ O roadmap registra marcos técnicos sem inventar conteúdo narrativo.
 - [x] Indicação de interação clara no teclado e no celular.
 - [x] Movimento ambiental leve com folhas secas na calçada.
 - [x] Reduzir atualizações desnecessárias da interface durante o loop.
+- [x] Evitar saltos de animação ao alternar entre aplicativos no celular.
 - [ ] Confirmar no iPhone que nenhum quadro de caminhada ou pulo corta cabelo, pés ou mochila.
 - [ ] Concluir o checklist manual da Sprint 01.
 

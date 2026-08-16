@@ -28,6 +28,7 @@ Use este checklist antes de integrar uma alteração em `main`.
 - [ ] Toque funciona.
 - [ ] Espaço e botão Pulo executam apenas um salto por pressão.
 - [ ] Nila para ao soltar, trocar de aba ou trocar de aplicativo.
+- [ ] Ao retornar de outra aba ou aplicativo, a animação continua sem salto ou aceleração repentina.
 - [ ] O canvas não fica cortado em retrato ou paisagem.
 - [ ] Áreas seguras do aparelho são respeitadas.
 - [ ] A versão publicada foi aberta depois do GitHub Pages concluir.
