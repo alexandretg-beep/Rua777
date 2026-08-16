@@ -38,6 +38,7 @@ Rua777.createGame = function createGame(canvas) {
 
   function draw() {
     scene.draw(context, elapsedTime);
+    if (nearGate && !dialogue.isOpen()) scene.drawGateHint(context, elapsedTime);
     player.draw(context);
     scene.drawForeground(context, player.state, elapsedTime);
     if (nearGate && !dialogue.isOpen()) Rua777.drawInteractionPrompt(context);

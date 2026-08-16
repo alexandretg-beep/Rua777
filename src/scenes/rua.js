@@ -89,6 +89,20 @@ Rua777.createRuaScene = function createRuaScene() {
     }
   }
 
+  function drawGateHint(context, elapsedTime = 0) {
+    const pulse = (Math.sin(elapsedTime * 4) + 1) / 2;
+    const alpha = (0.5 + pulse * 0.35).toFixed(2);
+    const previousStrokeStyle = context.strokeStyle;
+    const previousLineWidth = context.lineWidth;
+
+    context.strokeStyle = `rgba(255, 226, 150, ${alpha})`;
+    context.lineWidth = 2;
+    context.strokeRect(214.5, 140.5, 51, 19);
+
+    context.strokeStyle = previousStrokeStyle;
+    context.lineWidth = previousLineWidth;
+  }
+
   function drawForeground(context, player, elapsedTime = 0) {
     const overlapsCanopy = (
       player.x + player.width > 39 &&
@@ -99,5 +113,5 @@ Rua777.createRuaScene = function createRuaScene() {
     if (overlapsCanopy) drawTreeCanopy(context, elapsedTime);
   }
 
-  return { obstacles, isPlayerNearGate, draw, drawForeground };
+  return { obstacles, isPlayerNearGate, draw, drawGateHint, drawForeground };
 };
