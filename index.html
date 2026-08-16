@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Rua 777</title>
-  <link rel="stylesheet" href="./src/styles/game.css?v=3">
+  <link rel="stylesheet" href="./src/styles/game.css?v=4">
 </head>
 <body>
   <main class="game-shell">
@@ -18,11 +18,14 @@
         <button type="button" class="touch-button touch-down" data-input="ArrowDown" aria-label="Mover para baixo">▼</button>
         <button type="button" class="touch-button touch-right" data-input="ArrowRight" aria-label="Mover para direita">▶</button>
       </div>
-      <button type="button" class="touch-button touch-action" data-input="KeyE" aria-label="Interagir">E</button>
+      <div class="touch-actions" aria-label="Ações">
+        <button type="button" class="touch-button touch-action touch-jump" data-input="Space" aria-label="Pular">Pulo</button>
+        <button type="button" class="touch-button touch-action" data-input="KeyE" aria-label="Interagir">E</button>
+      </div>
     </section>
 
     <p class="status">Primeira caminhada jogável</p>
-    <p class="controls">Mover: WASD, setas ou toque · Interagir: E</p>
+    <p class="controls">Mover: WASD, setas ou toque · Pular: espaço ou Pulo · Interagir: E</p>
   </main>
   <script src="./src/config.js?v=2"></script>
   <script src="./src/systems/assets.js"></script>
@@ -30,8 +33,8 @@
   <script src="./src/systems/collision.js"></script>
   <script src="./src/systems/dialogue.js"></script>
   <script src="./src/scenes/rua.js?v=4"></script>
-  <script src="./src/entities/player.js?v=6"></script>
-  <script src="./src/game.js?v=7"></script>
+  <script src="./src/entities/player.js?v=7"></script>
+  <script src="./src/game.js?v=8"></script>
   <script src="./src/main.js?v=2"></script>
 </body>
 </html>

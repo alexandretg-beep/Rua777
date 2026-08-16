@@ -12,6 +12,7 @@ Rua777.createGame = function createGame(canvas) {
 
   if (assets.loadImage) {
     assets.loadImage("nila-walk", "./assets/characters/nila/nila-walk-6frames.png");
+    assets.loadImage("nila-jump", "./assets/characters/nila/nila-jump-4frames.png");
   }
 
   const input = Rua777.createInput();
@@ -27,9 +28,10 @@ Rua777.createGame = function createGame(canvas) {
       player.stop();
       if (input.consumePress("KeyE", "Enter", "Space")) dialogue.close();
     } else {
+      if (input.consumePress("Space")) player.jump();
       player.update(input, deltaTime, scene.obstacles);
       nearGate = scene.isPlayerNearGate(player.state);
-      if (nearGate && input.consumePress("KeyE")) {
+      if (nearGate && !player.state.jumping && input.consumePress("KeyE")) {
         dialogue.show("Nila", "Então esta é a nossa nova casa...");
       }
     }

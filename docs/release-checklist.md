@@ -18,11 +18,14 @@ Use este checklist antes de integrar uma alteração em `main`.
 - [ ] A diagonal não fica mais rápida.
 - [ ] A aceleração começa e termina suavemente.
 - [ ] A sprite oficial corresponde a `docs/assets.md`.
+- [ ] O pulo usa preparação, subida, ápice e aterrissagem nas quatro direções.
+- [ ] O salto termina no mesmo plano de colisão e não atravessa obstáculos.
 
 ## Computador e celular
 
 - [ ] Teclado funciona.
 - [ ] Toque funciona.
+- [ ] Espaço e botão Pulo executam apenas um salto por pressão.
 - [ ] Nila para ao soltar, trocar de aba ou trocar de aplicativo.
 - [ ] O canvas não fica cortado em retrato ou paisagem.
 - [ ] Áreas seguras do aparelho são respeitadas.

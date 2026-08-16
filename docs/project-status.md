@@ -8,13 +8,15 @@ Este é o painel central de Rua 777. Deve ser atualizado sempre que uma entrega 
 - Plataforma atual: navegador, computador e celular.
 - Publicação: https://alexandretg-beep.github.io/Rua777/
 - Sprint 01: concluída tecnicamente.
-- Testes automáticos: 29 verificações, incluindo formato e grade da sprite oficial.
+- Testes automáticos: 43 verificações, incluindo formato e grade das sprites de caminhada e pulo.
 
 ## O que está funcionando
 
 - Movimento em quatro direções por teclado e toque.
 - Aceleração leve ao manter uma direção.
 - Animação de caminhada com seis quadros por direção.
+- Pulo curto com quatro quadros por direção, por teclado e toque.
+- Movimento durante o salto sem atravessar obstáculos.
 - Colisões com muros, portão e árvore.
 - Profundidade visual da copa da árvore.
 - Folhas com movimento discreto.
@@ -25,12 +27,14 @@ Este é o painel central de Rua 777. Deve ser atualizado sempre que uma entrega 
 ## Validação pendente
 
 - [ ] Confirmar em um iPhone que a cabeça de Nila não é cortada ao apertar subir.
+- [ ] Confirmar em um iPhone que cabelo, pés e mochila não são cortados durante o pulo.
+- [ ] Confirmar que os botões Pulo e E ficam confortáveis em retrato e paisagem.
 - [ ] Executar todo o checklist de `tests/manual-checklist.md` depois da correção visual.
 - [ ] Aprovar ou substituir a fala provisória do portão antes de tratá-la como cânone.
 
 ## Próxima entrega recomendada
 
-Concluir a validação visual da movimentação nas quatro direções. Depois disso, planejar a próxima pequena interação sem criar fatos narrativos novos sem autorização.
+Concluir a validação visual da caminhada e do pulo nas quatro direções. Depois disso, planejar a próxima pequena interação sem criar fatos narrativos novos sem autorização.
 
 ## Fontes de verdade
 

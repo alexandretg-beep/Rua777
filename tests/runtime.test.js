@@ -22,6 +22,19 @@ assert.deepEqual(
   [128, 128]
 );
 
+const jumpSpritePath = path.join(
+  root,
+  "assets/characters/nila/nila-jump-4frames.png"
+);
+const jumpSpriteFile = fs.readFileSync(jumpSpritePath);
+assert.equal(jumpSpriteFile.subarray(1, 4).toString("ascii"), "PNG");
+const jumpSpriteWidth = jumpSpriteFile.readUInt32BE(16);
+const jumpSpriteHeight = jumpSpriteFile.readUInt32BE(20);
+assert.equal(jumpSpriteWidth, 512);
+assert.equal(jumpSpriteHeight, 512);
+assert.equal(jumpSpriteFile[25], 6);
+assert.deepEqual([jumpSpriteWidth / 4, jumpSpriteHeight / 4], [128, 128]);
+
 global.window = globalThis;
 global.addEventListener = (type, handler) => {
   (listeners[type] ||= []).push(handler);
@@ -72,6 +85,11 @@ input.press("KeyE");
 assert.equal(input.consumePress("KeyE"), true);
 input.release("KeyE");
 
+input.press("Space");
+assert.equal(input.isHeld("Space"), true);
+assert.equal(input.consumePress("Space"), true);
+input.release("Space");
+
 input.press("ArrowLeft");
 dispatch("blur");
 assert.equal(input.isHeld("ArrowLeft"), false);
@@ -111,8 +129,10 @@ const spriteContext = {
   }
 };
 const spriteAssets = {
-  getImage() {
-    return sprite;
+  getImage(key) {
+    return key === "nila-jump"
+      ? { naturalWidth: 512, naturalHeight: 512 }
+      : sprite;
   }
 };
 
@@ -137,6 +157,19 @@ facingUp.update(input, 0.05, scene.obstacles);
 dispatch("keyup", "KeyW");
 facingUp.draw(spriteContext);
 assert.equal(drawnRows.pop(), 384);
+
+const jumper = Rua777.createPlayer(spriteAssets);
+assert.equal(jumper.jump(), true);
+assert.equal(jumper.jump(), false);
+jumper.update(input, 0.14, scene.obstacles);
+assert.equal(jumper.state.jumping, true);
+assert.ok(jumper.state.jumpOffset > 0);
+jumper.draw(spriteContext);
+assert.equal(jumper.jumpAnimation.framesPerDirection, 4);
+assert.equal(drawnRows.pop(), 0);
+jumper.update(input, 0.42, scene.obstacles);
+assert.equal(jumper.state.jumping, false);
+assert.equal(jumper.state.jumpOffset, 0);
 
 const diagonal = Rua777.createPlayer();
 dispatch("keydown", "KeyD");
@@ -224,7 +257,8 @@ Rua777.createAssets = () => ({
 
 const game = Rua777.createGame(canvas);
 assert.deepEqual(assetLoads, [
-  ["nila-walk", "./assets/characters/nila/nila-walk-6frames.png"]
+  ["nila-walk", "./assets/characters/nila/nila-walk-6frames.png"],
+  ["nila-jump", "./assets/characters/nila/nila-jump-4frames.png"]
 ]);
 
 dispatch("keydown", "KeyD");
@@ -270,16 +304,23 @@ global.document = {
 global.requestAnimationFrame = () => 1;
 load("src/main.js");
 
-console.log("PASS 29/29");
+console.log("PASS 43/43");
 console.log("✓ sprite oficial é um PNG");
 console.log("✓ largura da sprite oficial");
 console.log("✓ altura da sprite oficial");
 console.log("✓ sprite oficial possui canal alfa");
 console.log("✓ grade oficial usa células 128 × 128");
+console.log("✓ sprite de pulo é um PNG");
+console.log("✓ largura da sprite de pulo");
+console.log("✓ altura da sprite de pulo");
+console.log("✓ sprite de pulo possui canal alfa");
+console.log("✓ grade de pulo usa células 128 × 128");
 console.log("✓ scripts carregam");
 console.log("✓ jogo carrega o novo arquivo da sprite");
 console.log("✓ entrada de toque para movimento");
 console.log("✓ entrada de toque para interação");
+console.log("✓ entrada de toque para pulo");
+console.log("✓ pulo usa uma ativação por pressão");
 console.log("✓ controles liberados ao perder foco");
 console.log("✓ controles liberados ao trocar de página");
 console.log("✓ movimento horizontal");
@@ -290,6 +331,12 @@ console.log("✓ sprite olha para a esquerda");
 console.log("✓ recortes da sprite usam coordenadas inteiras");
 console.log("✓ caminhada usa seis quadros por direção");
 console.log("✓ linha completa de subida é selecionada");
+console.log("✓ salto começa somente quando Nila está no chão");
+console.log("✓ salto ganha altura");
+console.log("✓ salto usa quatro quadros por direção");
+console.log("✓ salto seleciona a linha da direção atual");
+console.log("✓ salto termina no chão");
+console.log("✓ altura visual reinicia após o salto");
 console.log("✓ diagonal normalizada");
 console.log("✓ colisão com muro");
 console.log("✓ colisão com árvore");
