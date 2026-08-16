@@ -29,6 +29,9 @@
 - [ ] O botão E abre e fecha o diálogo.
 - [ ] A página não rola nem amplia durante os controles.
 - [ ] Teclado continua funcionando em computadores.
+- [ ] O direcional ocupa apenas o espaço necessário, sem uma linha vazia.
+- [ ] Canvas e botões não ficam sob recortes ou bordas arredondadas.
+- [ ] Em modo paisagem, o canvas permanece centralizado e totalmente visível.
 
 ## Colisões
 
