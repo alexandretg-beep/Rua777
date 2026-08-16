@@ -11,6 +11,7 @@ O roadmap registra marcos técnicos sem inventar conteúdo narrativo.
 - [x] Aceleração leve.
 - [x] Caminhada com seis quadros por direção.
 - [x] Pulo curto por teclado e toque com sprite própria.
+- [x] Resposta visual discreta na aterrissagem.
 - [ ] Confirmar no iPhone que nenhum quadro de caminhada ou pulo corta cabelo, pés ou mochila.
 - [ ] Concluir o checklist manual da Sprint 01.
 

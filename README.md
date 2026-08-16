@@ -18,7 +18,7 @@ O protótipo jogável já permite:
 
 - Abrir o jogo diretamente pelo `index.html`.
 - Movimentar Nila com WASD, setas ou controles de toque, com aceleração leve e seis quadros de caminhada por direção.
-- Pular com espaço ou com o botão Pulo, usando quatro quadros por direção e mantendo as colisões do chão.
+- Pular com espaço ou com o botão Pulo, usando quatro quadros por direção, poeira discreta na aterrissagem e mantendo as colisões do chão.
 - Encontrar colisões no cenário.
 - Aproximar-se do portão da casa.
 - Interagir com uma fala provisória.
