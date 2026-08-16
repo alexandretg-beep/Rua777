@@ -101,8 +101,8 @@ Rua777.createPlayer = function createPlayer(assets) {
 
     const sprite = assets && assets.getImage("nila-walk");
     if (sprite) {
-      const sourceWidth = sprite.naturalWidth / 4;
-      const sourceHeight = sprite.naturalHeight / 4;
+      const sourceWidth = Math.floor(sprite.naturalWidth / 4);
+      const sourceHeight = Math.floor(sprite.naturalHeight / 4);
       const destinationWidth = 72;
       const destinationHeight = 80;
 
