@@ -16,6 +16,8 @@ Cada decisão deve informar a data, o assunto, o estado e o impacto nos arquivos
 | 2026-08-16 | Controles | O protótipo deve funcionar com teclado e toque. | Implementado |
 | 2026-08-16 | Movimento | Manter a direção provoca aceleração leve, sem corrida brusca. | Implementado |
 | 2026-08-16 | Caminhada | A sprite oficial usa seis quadros por direção. | Implementado |
+| 2026-08-16 | Pulo | Nila pode dar um salto curto com espaço ou botão de toque; pode se mover no ar, mas continua respeitando as colisões do chão. | Implementado |
+| 2026-08-16 | Sprite de pulo | A animação usa quatro quadros por direção e mantém o cabelo até os ombros. | Implementado |
 | 2026-08-16 | Ambiente | Elementos naturais podem ter animações discretas, como folhas balançando. | Implementado |
 | 2026-08-16 | Diálogo do portão | “Então esta é a nossa nova casa...” continua sendo provisório. | Não canônico |
 

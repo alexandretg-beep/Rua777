@@ -19,6 +19,17 @@
 - [ ] Nila continua parecendo uma adolescente de 16 anos.
 - [ ] A aparência corresponde a `docs/canon.md` e `docs/assets.md`.
 
+## Pulo
+
+- [ ] Espaço inicia um salto curto e fluido.
+- [ ] Preparação, subida, ápice e aterrissagem aparecem na ordem correta.
+- [ ] A direção do pulo acompanha a última direção de Nila.
+- [ ] É possível caminhar durante o salto.
+- [ ] Segurar espaço não repete o salto automaticamente.
+- [ ] Nila não atravessa muro, portão ou árvore durante o salto.
+- [ ] Cabelo até os ombros, cabeça, pés e mochila não são cortados.
+- [ ] A sombra permanece no chão e diminui enquanto Nila sobe.
+
 ## Movimento
 
 - [ ] W e seta para cima movimentam Nila para cima.
@@ -38,6 +49,8 @@
 - [ ] É possível segurar um botão para caminhar.
 - [ ] Nila para ao soltar ou cancelar o toque.
 - [ ] O botão E abre e fecha o diálogo.
+- [ ] O botão Pulo executa apenas um salto por toque.
+- [ ] Os botões Pulo e E não se sobrepõem em retrato ou paisagem.
 - [ ] A página não rola nem amplia durante os controles.
 - [ ] Teclado continua funcionando em computadores.
 - [ ] O direcional ocupa apenas o espaço necessário, sem uma linha vazia.

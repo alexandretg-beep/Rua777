@@ -8,6 +8,8 @@ Rua777.createPlayer = function createPlayer(assets) {
     height: 39,
     direction: "down",
     moving: false,
+    jumping: false,
+    jumpOffset: 0,
     speed: Rua777.config.playerSpeed
   };
 
@@ -16,6 +18,14 @@ Rua777.createPlayer = function createPlayer(assets) {
     elapsed: 0,
     frameDuration: 0.14,
     framesPerDirection: 6
+  };
+
+  const jumpAnimation = {
+    frame: 0,
+    elapsed: 0,
+    duration: 0.56,
+    height: 20,
+    framesPerDirection: 4
   };
 
   const directionRow = Object.freeze({ down: 0, right: 1, left: 2, up: 3 });
@@ -27,6 +37,37 @@ Rua777.createPlayer = function createPlayer(assets) {
     movingTime = 0;
     animation.frame = 0;
     animation.elapsed = 0;
+  }
+
+  function jump() {
+    if (player.jumping) return false;
+    player.jumping = true;
+    player.jumpOffset = 0;
+    jumpAnimation.frame = 0;
+    jumpAnimation.elapsed = 0;
+    return true;
+  }
+
+  function updateJump(deltaTime) {
+    if (!player.jumping) return;
+
+    jumpAnimation.elapsed = Math.min(
+      jumpAnimation.elapsed + deltaTime,
+      jumpAnimation.duration
+    );
+    const progress = jumpAnimation.elapsed / jumpAnimation.duration;
+    player.jumpOffset = Math.sin(progress * Math.PI) * jumpAnimation.height;
+    jumpAnimation.frame = Math.min(
+      jumpAnimation.framesPerDirection - 1,
+      Math.floor(progress * jumpAnimation.framesPerDirection)
+    );
+
+    if (progress >= 1) {
+      player.jumping = false;
+      player.jumpOffset = 0;
+      jumpAnimation.frame = 0;
+      jumpAnimation.elapsed = 0;
+    }
   }
 
   function updateAnimation(deltaTime) {
@@ -46,6 +87,8 @@ Rua777.createPlayer = function createPlayer(assets) {
   }
 
   function update(input, deltaTime, obstacles) {
+    updateJump(deltaTime);
+
     let xAxis = 0;
     let yAxis = 0;
 
@@ -113,31 +156,43 @@ Rua777.createPlayer = function createPlayer(assets) {
 
   function draw(context) {
     const x = Math.round(player.x);
-    const y = Math.round(player.y);
+    const groundY = Math.round(player.y);
+    const jumpOffset = Math.round(player.jumpOffset);
+    const shadowWidth = Math.max(8, 14 - jumpOffset * 0.25);
 
     context.fillStyle = "rgba(18, 20, 23, 0.35)";
-    context.fillRect(x + 2, y + 35, 14, 4);
+    context.fillRect(
+      Math.round(x + player.width / 2 - shadowWidth / 2),
+      groundY + 35,
+      Math.round(shadowWidth),
+      4
+    );
 
-    const sprite = assets && assets.getImage("nila-walk");
+    const spriteKey = player.jumping ? "nila-jump" : "nila-walk";
+    const sprite = assets && assets.getImage(spriteKey);
+    const framesPerDirection = player.jumping
+      ? jumpAnimation.framesPerDirection
+      : animation.framesPerDirection;
+    const frame = player.jumping ? jumpAnimation.frame : animation.frame;
     if (sprite) {
-      const sourceWidth = Math.floor(sprite.naturalWidth / animation.framesPerDirection);
+      const sourceWidth = Math.floor(sprite.naturalWidth / framesPerDirection);
       const sourceHeight = Math.floor(sprite.naturalHeight / 4);
       const destinationWidth = 72;
       const destinationHeight = 80;
 
       context.drawImage(
         sprite,
-        animation.frame * sourceWidth,
+        frame * sourceWidth,
         directionRow[player.direction] * sourceHeight,
         sourceWidth,
         sourceHeight,
         Math.round(player.x + player.width / 2 - destinationWidth / 2),
-        Math.round(player.y + player.height - destinationHeight),
+        Math.round(player.y + player.height - destinationHeight - jumpOffset),
         destinationWidth,
         destinationHeight
       );
     } else {
-      drawPlaceholder(context, x, y);
+      drawPlaceholder(context, x, groundY - jumpOffset);
     }
 
     if (Rua777.config.debug) {
@@ -147,5 +202,5 @@ Rua777.createPlayer = function createPlayer(assets) {
     }
   }
 
-  return { state: player, animation, stop, update, draw };
+  return { state: player, animation, jumpAnimation, stop, jump, update, draw };
 };

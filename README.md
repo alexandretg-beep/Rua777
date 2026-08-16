@@ -18,6 +18,7 @@ O protótipo jogável já permite:
 
 - Abrir o jogo diretamente pelo `index.html`.
 - Movimentar Nila com WASD, setas ou controles de toque, com aceleração leve e seis quadros de caminhada por direção.
+- Pular com espaço ou com o botão Pulo, usando quatro quadros por direção e mantendo as colisões do chão.
 - Encontrar colisões no cenário.
 - Aproximar-se do portão da casa.
 - Interagir com uma fala provisória.
@@ -37,6 +38,7 @@ Não é necessário instalar dependências para jogar.
 | Ação | Teclas |
 |---|---|
 | Caminhar | WASD, setas ou direcional de toque |
+| Pular | Espaço ou botão Pulo na tela |
 | Interagir | E ou botão E na tela |
 | Fechar diálogo | E, Enter, espaço ou botão E na tela |
 
@@ -48,7 +50,7 @@ Com Node.js instalado, execute:
 npm test
 ```
 
-A verificação automatizada cobre carregamento dos scripts, entrada compartilhada por teclado e toque, movimento, diagonal, colisões, proximidade do portão e diálogo. A apresentação visual deve ser conferida manualmente no navegador usando `tests/manual-checklist.md`.
+A verificação automatizada cobre carregamento dos scripts, sprites de caminhada e pulo, entrada compartilhada por teclado e toque, movimento, salto, diagonal, colisões, proximidade do portão e diálogo. A apresentação visual deve ser conferida manualmente no navegador usando `tests/manual-checklist.md`.
 
 ## Estrutura
 
