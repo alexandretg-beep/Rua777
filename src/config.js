@@ -5,6 +5,8 @@ Rua777.config = Object.freeze({
   height: 270,
   backgroundColor: "#8b9aa5",
   playerSpeed: 85,
+  playerMaxSpeed: 105,
+  playerAccelerationTime: 1.1,
   maxDeltaTime: 0.05,
   debug: false
 });
