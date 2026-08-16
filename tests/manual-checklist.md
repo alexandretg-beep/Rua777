@@ -8,6 +8,17 @@
 - [ ] Os pixels permanecem nítidos ao redimensionar.
 - [ ] O console do navegador não apresenta erros.
 
+## Sprite de Nila
+
+- [ ] O jogo carrega `nila-walk-6frames.png`.
+- [ ] Frente, direita, esquerda e costas mostram a direção correta.
+- [ ] Os seis quadros de cada direção aparecem durante a caminhada.
+- [ ] A cabeça não é cortada ao começar a subir.
+- [ ] Cabelo, mãos, pés e mochila permanecem inteiros em todos os quadros.
+- [ ] Os pés permanecem alinhados sem tremor vertical exagerado.
+- [ ] Nila continua parecendo uma adolescente de 16 anos.
+- [ ] A aparência corresponde a `docs/canon.md` e `docs/assets.md`.
+
 ## Movimento
 
 - [ ] W e seta para cima movimentam Nila para cima.
@@ -58,6 +69,13 @@
 - [ ] O tronco da árvore permanece imóvel.
 - [ ] A colisão da árvore não acompanha a animação visual.
 - [ ] A animação continua suave durante movimento e diálogo.
+
+## Publicação
+
+- [ ] O GitHub Pages terminou com sucesso.
+- [ ] A página foi reaberta depois da publicação.
+- [ ] O navegador não está usando um ativo antigo em cache.
+- [ ] Pendências encontradas foram registradas em `docs/project-status.md`.
 
 ## Cânone
 
