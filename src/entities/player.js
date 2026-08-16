@@ -7,7 +7,8 @@ Rua777.createPlayer = function createPlayer(assets) {
     width: 18,
     height: 39,
     direction: "down",
-    moving: false
+    moving: false,
+    speed: Rua777.config.playerSpeed
   };
 
   const animation = {
@@ -18,9 +19,12 @@ Rua777.createPlayer = function createPlayer(assets) {
   };
 
   const directionRow = Object.freeze({ down: 0, right: 1, left: 2, up: 3 });
+  let movingTime = 0;
 
   function stop() {
     player.moving = false;
+    player.speed = Rua777.config.playerSpeed;
+    movingTime = 0;
     animation.frame = 0;
     animation.elapsed = 0;
   }
@@ -32,9 +36,11 @@ Rua777.createPlayer = function createPlayer(assets) {
       return;
     }
 
+    const speedRatio = player.speed / Rua777.config.playerSpeed;
+    const currentFrameDuration = animation.frameDuration / speedRatio;
     animation.elapsed += deltaTime;
-    while (animation.elapsed >= animation.frameDuration) {
-      animation.elapsed -= animation.frameDuration;
+    while (animation.elapsed >= currentFrameDuration) {
+      animation.elapsed -= currentFrameDuration;
       animation.frame = (animation.frame + 1) % animation.framesPerDirection;
     }
   }
@@ -49,8 +55,21 @@ Rua777.createPlayer = function createPlayer(assets) {
     if (input.isHeld("ArrowDown", "KeyS")) yAxis += 1;
 
     player.moving = xAxis !== 0 || yAxis !== 0;
+    if (!player.moving) {
+      stop();
+      return;
+    }
+
+    const accelerationProgress = Math.min(
+      movingTime / Rua777.config.playerAccelerationTime,
+      1
+    );
+    const easedProgress = accelerationProgress * (2 - accelerationProgress);
+    player.speed = Rua777.config.playerSpeed + (
+      Rua777.config.playerMaxSpeed - Rua777.config.playerSpeed
+    ) * easedProgress;
     updateAnimation(deltaTime);
-    if (!player.moving) return;
+    movingTime += deltaTime;
 
     if (xAxis !== 0 && yAxis !== 0) {
       xAxis *= Math.SQRT1_2;
@@ -63,7 +82,7 @@ Rua777.createPlayer = function createPlayer(assets) {
       player.direction = yAxis < 0 ? "up" : "down";
     }
 
-    const distance = Rua777.config.playerSpeed * deltaTime;
+    const distance = player.speed * deltaTime;
     const nextX = Math.max(0, Math.min(
       Rua777.config.width - player.width,
       player.x + xAxis * distance
